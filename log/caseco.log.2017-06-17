@@ -1,0 +1,2 @@
+17/06/2017 02:56:20 ERROR (com.admin.view.products.Productos_CRUDPadreDialog:btnAgregarUnidadActionPerformed:1646) com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'prod_codigo' cannot be null
+17/06/2017 16:54:43 ERROR (com.admin.view.products.Productos_CRUDPadreDialog:btnModificarActionPerformed:1200) com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''Abrazaderas' WHERE prod_codigo = 86' at line 1

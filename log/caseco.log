@@ -1,0 +1,4 @@
+19/06/2017 00:24:47 ERROR (com.admin.view.products.Productos:verificarParametros:102) com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'p_querMode' in 'field list'
+19/06/2017 00:33:57 ERROR (com.admin.view.products.Productos:verificarParametros:102) com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'pr.prod_categoria' in 'where clause'
+19/06/2017 00:35:31 ERROR (com.admin.view.products.Productos:verificarParametros:102) com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'pr.prod_marca' in 'where clause'
+19/06/2017 01:03:56 ERROR (com.admin.view.products.Productos_CodigoBarra:verificarParametros:77) java.sql.SQLException: Parameter index out of range (7 > number of parameters, which is 6).

@@ -1,0 +1,11 @@
+12/06/2017 00:01:51 ERROR (com.admin.view.units.TiendasAlmacen_Telefono:btnAgregarActionPerformed:340) java.sql.SQLException: Data truncated for column 'tipo_referencia' at row 1
+12/06/2017 18:05:05 ERROR (com.admin.view.clients.Clientes:verificarParametros:40) com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'ccl.lie_fechaNacimiento' in 'field list'
+12/06/2017 18:07:18 ERROR (com.admin.view.clients.Clientes:verificarParametros:40) com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'cl.lie_fechaNacimiento' in 'field list'
+12/06/2017 18:08:36 ERROR (com.admin.view.clients.Clientes:verificarParametros:40) java.sql.SQLException: Column 'ruc' not found.
+12/06/2017 18:08:36 ERROR (com.admin.view.clients.Clientes:verificarParametros:40) java.sql.SQLException: Column 'ruc' not found.
+12/06/2017 18:32:33 ERROR (com.admin.view.clients.Clientes:verificarParametros:55) com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'cl.clie_nombreApellidos' in 'where clause'
+12/06/2017 18:32:33 ERROR (com.admin.view.clients.Clientes:verificarParametros:55) com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'cl.clie_nombreApellidos' in 'where clause'
+12/06/2017 18:32:35 ERROR (com.admin.view.clients.Clientes:verificarParametros:55) com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'cl.clie_nombreApellidos' in 'where clause'
+12/06/2017 18:32:35 ERROR (com.admin.view.clients.Clientes:verificarParametros:55) com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'cl.clie_nombreApellidos' in 'where clause'
+12/06/2017 18:32:36 ERROR (com.admin.view.clients.Clientes:verificarParametros:55) com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'cl.clie_nombreApellidos' in 'where clause'
+12/06/2017 18:32:36 ERROR (com.admin.view.clients.Clientes:verificarParametros:55) com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'cl.clie_nombreApellidos' in 'where clause'

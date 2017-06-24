@@ -1,0 +1,2 @@
+11/06/2017 23:44:17 ERROR (com.admin.view.units.TiendasAlmacen_Telefono:btnAgregarActionPerformed:339) java.sql.SQLException: Data truncated for column 'tipo_referencia' at row 1
+11/06/2017 23:46:32 ERROR (com.admin.view.units.TiendasAlmacen_Telefono:btnAgregarActionPerformed:339) java.sql.SQLException: Data truncated for column 'tipo_referencia' at row 1

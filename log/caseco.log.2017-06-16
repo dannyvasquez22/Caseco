@@ -1,0 +1,1 @@
+16/06/2017 00:32:03 ERROR (com.admin.view.products.Productos_TiempoTrabajo:listarTiempoProducto:36) com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'ti.tienprod_fechainicio' in 'field list'

@@ -1,0 +1,3 @@
+13/06/2017 15:37:16 ERROR (com.admin.view.clients.Clientes_CRUDPadreDialog:btnAgregarIntermediarioActionPerformed:2202) java.sql.SQLException: No value specified for parameter 2
+13/06/2017 15:54:09 ERROR (com.admin.view.clients.Clientes:modClieBoletas:118) java.sql.SQLException: Parameter index out of range (3 > number of parameters, which is 2).
+13/06/2017 23:25:21 ERROR (com.admin.view.clients.Clientes:modClieBoletas:118) com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'et.empltra_codigos' in 'where clause'

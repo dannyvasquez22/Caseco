@@ -1,0 +1,3 @@
+15/06/2017 14:29:18 ERROR (com.admin.view.products.Productos:verificarParametros:104) java.sql.SQLException: No value specified for parameter 2
+15/06/2017 14:31:55 ERROR (com.admin.view.products.Productos:verificarParametros:103) com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'tp.tienda_razonSocial' in 'where clause'
+15/06/2017 14:37:45 ERROR (com.admin.view.products.Productos:verificarParametros:103) com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'pr.estado' in 'where clause'
