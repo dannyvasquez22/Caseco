@@ -1,5 +1,6 @@
 package com.admin.view.init;
 
+import com.admin.controller.viewmodel.CLogin;
 import com.admin.view.complements.*;
 import com.admin.entity.bl.AccesoBL;
 import com.admin.entity.bl.ProductoBL;
@@ -73,7 +74,7 @@ public class Menu extends javax.swing.JFrame {
         Clock hilo = new Clock(lblReloj, lblFecha);
         hilo.start();
         menuArticulos();
-        lblUsuario.setText(Login.user);
+        lblUsuario.setText(CLogin.user);
 //        SubstanceLookAndFeel.setSkin("org.jvnet.substance.skin.BusinessBlueSteelSkin");
 //        SubstanceLookAndFeel.setCurrentWatermark(new SubstanceImageWatermark("src/com/admin/resource/images/LOGO.png"));
     }
@@ -1189,8 +1190,8 @@ public class Menu extends javax.swing.JFrame {
         if (opcion == 0) {
             horaFin = Global.CALENDARY.get(Global.CALENDARY.HOUR_OF_DAY) + ":" + Global.CALENDARY.get(Global.CALENDARY.MINUTE) + ":" + Global.CALENDARY.get(Global.CALENDARY.SECOND);
             acceso = new AccesoDTO(
-                                   Global.FORMAT_DATE_SQL.parse(String.valueOf(Login.fechaInicio)), 
-                                   new java.sql.Time(Global.FORMAT_TIME_SQL.parse(Login.horaInicio).getTime()),
+                                   Global.FORMAT_DATE_SQL.parse(String.valueOf(CLogin.fechaInicio)), 
+                                   new java.sql.Time(Global.FORMAT_TIME_SQL.parse(CLogin.horaInicio).getTime()),
                                    new java.sql.Time(Global.FORMAT_TIME_SQL.parse(horaFin).getTime()),
                                    new UsuarioDTO(lblUsuario.getText()));
             AccesoBL.getInstance().insert(acceso);

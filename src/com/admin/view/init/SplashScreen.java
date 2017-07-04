@@ -1,5 +1,6 @@
 package com.admin.view.init;
 
+import com.admin.controller.viewmodel.CLogin;
 import com.admin.resource.utils.BarSplash;
 import com.admin.resource.utils.Global;
 import com.admin.resource.utils.Messages;
@@ -63,6 +64,8 @@ public class SplashScreen extends javax.swing.JFrame implements Runnable {
             this.dispose();
             Login VentanaPrincipal = new Login();
             //VentanaPrincipal.setLocation(400, 200);
+            CLogin controller = new CLogin(VentanaPrincipal);
+            controller.iniciar();
             VentanaPrincipal.setVisible(true);
         } catch (Exception e) {   }
     }
