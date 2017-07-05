@@ -5,12 +5,9 @@
         <group>
             <file>file:/C:/Users/DANNY/Documents/NetBeansProjects/Caseco/src/com/admin/model/interfaces/IProducto.java</file>
             <file>file:/C:/Users/DANNY/Documents/NetBeansProjects/Caseco/src/com/admin/model/dto/ProductoDTO.java</file>
-            <file>file:/C:/Users/DANNY/Documents/NetBeansProjects/Caseco/src/com/admin/controller/init/CLogin.java</file>
             <file>file:/C:/Users/DANNY/Documents/NetBeansProjects/Caseco/src/com/admin/model/dao/ProductoDAO.java</file>
             <file>file:/C:/Users/DANNY/Documents/NetBeansProjects/Caseco/src/com/admin/model/bl/ProductoBL.java</file>
-            <file>file:/C:/Users/DANNY/Documents/NetBeansProjects/Caseco/src/com/admin/view/init/Menu.java</file>
             <file>file:/C:/Users/DANNY/Documents/NetBeansProjects/Caseco/src/com/admin/controller/init/CMenu.java</file>
-            <file>file:/C:/Users/DANNY/Documents/NetBeansProjects/Caseco/src/com/admin/view/init/Login.java</file>
             <file>file:/C:/Users/DANNY/Documents/NetBeansProjects/Caseco/src/com/admin/resource/utils/ConfigTables.java</file>
         </group>
     </open-files>

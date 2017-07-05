@@ -3,6 +3,13 @@ package com.admin.controller.init;
 // <editor-fold defaultstate="collapsed" desc="Importacion de clases">
 import com.admin.controller.complements.CPCInformation;
 import com.admin.controller.complements.CSupport;
+import com.admin.controller.units.CAlmacenes;
+import com.admin.controller.units.CCargos;
+import com.admin.controller.units.CCategorias;
+import com.admin.controller.units.CMarcas;
+import com.admin.controller.units.CTiendas;
+import com.admin.controller.units.CUnidadesMedida;
+import com.admin.controller.units.CVehiculos;
 import com.admin.controller.users.CUpdateAccount;
 import com.admin.model.bl.AccesoBL;
 import com.admin.model.bl.ProductoBL;
@@ -75,6 +82,20 @@ public class CMenu implements ActionListener {
     private CSupport controller_support;
     private UpdateAccount view_account;
     private CUpdateAccount controller_account;
+    private Almacenes view_almacen;
+    private CAlmacenes controller_almacen;
+    private Cargos view_cargo;
+    private CCargos controller_cargo;
+    private Categorias view_categoria;
+    private CCategorias controller_categoria;
+    private Marcas view_marca;
+    private CMarcas controller_marca;
+    private UnidadesMedida view_unidad;
+    private CUnidadesMedida controller_unidad;
+    private Vehiculos view_vehiculo;
+    private CVehiculos controller_vehiculo;
+    private Tiendas view_tienda;
+    private CTiendas controller_tienda;
     private final String nameUser;
     private final String fechaInicio;
     private final String horaInicio;
@@ -280,7 +301,7 @@ public class CMenu implements ActionListener {
             nuevo.setVisible(true);
         } else if (ae.getSource() == view_menu.ItemClienteConsulta) {
             new Clientes(view_menu, true).setVisible(true);
-        } else if (ae.getSource() == view_menu.ItemItemNuevoPago) {
+        } else if (ae.getSource() == view_menu.ItemItemNuevoPago) { /*-------------------------------------------*/
 //            new Pagos_CRUDPadreFrame(view_menu, true).setVisible(true);
         } else if (ae.getSource() == view_menu.ItemItemVerPagos) {
 //            new Pagos(view_menu, true).setVisible(true);
@@ -300,11 +321,11 @@ public class CMenu implements ActionListener {
 //            new Comprobantes_Consultar(view_menu, true).setVisible(true);
         } else if (ae.getSource() == view_menu.itemStockComercial) {
 //            new Productos_StockComercial(view_menu, true).setVisible(true);
-        } else if (ae.getSource() == view_menu.ItemProveedores) {
+        } else if (ae.getSource() == view_menu.ItemProveedores) { /*---------------------------------------------*/
             new Proveedores_CRUDPadreFrame(view_menu, true).setVisible(true);
         } else if (ae.getSource() == view_menu.ItemVerProveedores) {
             new Proveedores(view_menu, true).setVisible(true);
-        } else if (ae.getSource() == view_menu.ItemNuevoPersonal) {
+        } else if (ae.getSource() == view_menu.ItemNuevoPersonal) { /*-------------------------------------------*/
             new Empleados_CRUDPadreFrame(view_menu, true).setVisible(true);
         } else if (ae.getSource() == view_menu.ItemVerPersonal) {
             new Empleado(view_menu, true).setVisible(true);
@@ -316,21 +337,42 @@ public class CMenu implements ActionListener {
             new ConectadoUsuario(view_menu, true).setVisible(true);
         } else if (ae.getSource() == view_menu.ItemItemVerAccesos) {
             new AccesoUsuario(view_menu, true).setVisible(true);
-        } else if (ae.getSource() == view_menu.ItemItemAlmacen) {
-            new Almacenes(view_menu, true).setVisible(true);
+        } else if (ae.getSource() == view_menu.ItemItemAlmacen) { /*--------------------------------------------*/
+            view_almacen = new Almacenes(view_menu, true);
+            controller_almacen = new CAlmacenes(view_almacen);
+            controller_almacen.iniciar();
+            view_almacen.setVisible(true);            
         } else if (ae.getSource() == view_menu.ItemItemCargo) {
-            new Cargos(view_menu, true).setVisible(true);
+            view_cargo = new Cargos(view_menu, true);
+            controller_cargo = new CCargos(view_cargo);
+            controller_cargo.iniciar();
+            view_cargo.setVisible(true);
         } else if (ae.getSource() == view_menu.ItemItemCategorias) {
-            new Categorias(view_menu, true).setVisible(true);
+            view_categoria = new Categorias(view_menu, true);
+            controller_categoria = new CCategorias(view_categoria);
+            controller_categoria.iniciar();
+            view_categoria.setVisible(true);
         } else if (ae.getSource() == view_menu.ItemItemMarca) {
-            new Marcas(view_menu, true).setVisible(true);
+            view_marca = new Marcas(view_menu, true);
+            controller_marca = new CMarcas(view_marca);
+            controller_marca.iniciar();
+            view_marca.setVisible(true);
         } else if (ae.getSource() == view_menu.ItemItemUndMedida) {
-            new UnidadesMedida(view_menu, true).setVisible(true);
+            view_unidad = new UnidadesMedida(view_menu, true);
+            controller_unidad = new CUnidadesMedida(view_unidad);
+            controller_unidad.iniciar();
+            view_unidad.setVisible(true);
         } else if (ae.getSource() == view_menu.ItemItemTiendas) {
-            new Tiendas(view_menu, true).setVisible(true);
+            view_tienda = new Tiendas(view_menu, true);
+            controller_tienda = new CTiendas(view_tienda);
+            controller_tienda.iniciar();
+            view_tienda.setVisible(true);
         } else if (ae.getSource() == view_menu.ItemItemVehiculos) {
-            new Vehiculos(view_menu, true).setVisible(true);
-        } else if (ae.getSource() == view_menu.itemItemReporteVentas) {
+            view_vehiculo = new Vehiculos(view_menu, true);
+            controller_vehiculo = new CVehiculos(view_vehiculo);
+            controller_vehiculo.iniciar();
+            view_vehiculo.setVisible(true);
+        } else if (ae.getSource() == view_menu.itemItemReporteVentas) { /*--------------------------------------*/
             new VentaContable_OpcionesReporte(view_menu, true).setVisible(true);
         } else if (ae.getSource() == view_menu.itemItemReporteResumenDia) {
             //        String[] titulos = {"Serie", "Numero", "Hora", "Total"};
@@ -358,7 +400,7 @@ public class CMenu implements ActionListener {
             //        ex.reporte();
             //        ex.abrir();
         } else if (ae.getSource() == view_menu.itemItemReporteLadrillosFierros) {
-                String[] titulos ={"Nombre", "Precio Compra", "Precio Menor", "Precio Mayor", "Precio Ferreteria"};
+//                String[] titulos ={"Nombre", "Precio Compra", "Precio Menor", "Precio Mayor", "Precio Ferreteria"};
                 String consulta = "SELECT producto.prod_nombre,proveedor_producto.proveprod_preciocompra,detalle_undmedida.detundmed_precioMenor,"
                 + "detalle_undmedida.detundmed_precioMayor,detalle_undmedida.detundmed_precioEspecial FROM producto,proveedor_producto,detalle_undmedida WHERE "
                 + "producto.prod_codigo = proveedor_producto.prod_codigo AND producto.prod_codigo = detalle_undmedida.prod_codigo AND producto.prod_estado = 1 AND "
@@ -387,13 +429,7 @@ public class CMenu implements ActionListener {
         } else if (ae.getSource() == view_menu.itemItemReporteXVendedor) {
             
         } else if (ae.getSource() == view_menu.ItemCalculadora) {
-            Process runtimeProcess;
-            try {
-                String comandoCalculadora = System.getProperty("os.name").startsWith("Windows")?"calc":"gcalctool";
-                runtimeProcess = Runtime.getRuntime().exec(comandoCalculadora);
-            } catch (IOException ex) {
-                logger.warn(ex);
-            }
+            abrirCalculadora();
         } else if (ae.getSource() == view_menu.ItemAcercaDE) {
             view_support = new Support(view_menu, true);
             controller_support = new CSupport(view_support);
@@ -414,6 +450,16 @@ public class CMenu implements ActionListener {
         }
     }
     // </editor-fold>
+    
+    private void abrirCalculadora() {
+        Process runtimeProcess;
+        try {
+            String comandoCalculadora = System.getProperty("os.name").startsWith("Windows")?"calc":"gcalctool";
+            runtimeProcess = Runtime.getRuntime().exec(comandoCalculadora);
+        } catch (IOException ex) {
+            logger.warn(ex);
+        }
+    }
     
     private void lblPaginaMouseClicked(java.awt.event.MouseEvent evt) {                                       
         String browser = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
