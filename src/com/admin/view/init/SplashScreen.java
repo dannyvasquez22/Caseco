@@ -1,6 +1,6 @@
 package com.admin.view.init;
 
-import com.admin.controller.viewmodel.CLogin;
+import com.admin.controller.init.CLogin;
 import com.admin.resource.utils.BarSplash;
 import com.admin.resource.utils.Global;
 import com.admin.resource.utils.Messages;

@@ -5,16 +5,16 @@
  */
 package DTOEntity;
 
-import com.admin.entity.dto.VehiculoDTO;
-import com.admin.entity.dto.ObservacionDTO;
-import com.admin.entity.dto.FacturaDTO;
-import com.admin.entity.dto.GuiaRemisionDTO;
-import com.admin.entity.dto.TicketDTO;
-import com.admin.entity.dto.EmpleadoDTO;
-import com.admin.entity.dto.BoletaDTO;
-import com.admin.entity.dto.ClienteDTO;
-import com.admin.entity.dto.ComprobanteDTO;
-import com.admin.entity.dto.ProveedorDTO;
+import com.admin.model.dto.VehiculoDTO;
+import com.admin.model.dto.ObservacionDTO;
+import com.admin.model.dto.FacturaDTO;
+import com.admin.model.dto.GuiaRemisionDTO;
+import com.admin.model.dto.TicketDTO;
+import com.admin.model.dto.EmpleadoDTO;
+import com.admin.model.dto.BoletaDTO;
+import com.admin.model.dto.ClienteDTO;
+import com.admin.model.dto.ComprobanteDTO;
+import com.admin.model.dto.ProveedorDTO;
 import java.sql.Date;
 import org.junit.After;
 import org.junit.AfterClass;

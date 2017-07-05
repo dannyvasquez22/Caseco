@@ -5,10 +5,10 @@
  */
 package DTOEntity;
 
-import com.admin.entity.dto.ProductoDTO;
-import com.admin.entity.dto.DetalleTiendaDTO;
-import com.admin.entity.dto.UnidadMedidaDTO;
-import com.admin.entity.dto.OperacionStockDTO;
+import com.admin.model.dto.ProductoDTO;
+import com.admin.model.dto.DetalleTiendaDTO;
+import com.admin.model.dto.UnidadMedidaDTO;
+import com.admin.model.dto.OperacionStockDTO;
 import java.math.BigDecimal;
 import java.sql.Date;
 import java.sql.Time;

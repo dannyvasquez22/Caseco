@@ -5,10 +5,10 @@
  */
 package DTOEntity;
 
-import com.admin.entity.dto.CuentaBancariaDTO;
-import com.admin.entity.dto.ComprobanteDTO;
-import com.admin.entity.dto.PagoDTO;
-import com.admin.entity.dto.DetalleCargoDTO;
+import com.admin.model.dto.CuentaBancariaDTO;
+import com.admin.model.dto.ComprobanteDTO;
+import com.admin.model.dto.PagoDTO;
+import com.admin.model.dto.DetalleCargoDTO;
 import java.sql.Date;
 import org.junit.After;
 import org.junit.AfterClass;

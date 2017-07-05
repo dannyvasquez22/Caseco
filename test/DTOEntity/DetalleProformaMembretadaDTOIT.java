@@ -5,9 +5,9 @@
  */
 package DTOEntity;
 
-import com.admin.entity.dto.DetalleProformaMembretadaDTO;
-import com.admin.entity.dto.ProductoDTO;
-import com.admin.entity.dto.ProformaMembretadaDTO;
+import com.admin.model.dto.DetalleProformaMembretadaDTO;
+import com.admin.model.dto.ProductoDTO;
+import com.admin.model.dto.ProformaMembretadaDTO;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

@@ -1,6 +1,6 @@
 package com.admin.controller.tablemodel;
 
-import com.admin.entity.pojo.TelefonoVendedorP;
+import com.admin.model.pojo.TelefonoVendedorP;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 

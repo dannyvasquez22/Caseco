@@ -1,10 +1,10 @@
 package com.admin.view.employee;
 
 import com.admin.controller.tablemodel.TEmpleadoUsuario;
-import com.admin.entity.bl.CargoBL;
-import com.admin.entity.bl.EmpleadoBL;
-import com.admin.entity.dto.EmpleadoDTO;
-import com.admin.entity.pojo.EmpleadoP;
+import com.admin.model.bl.CargoBL;
+import com.admin.model.bl.EmpleadoBL;
+import com.admin.model.dto.EmpleadoDTO;
+import com.admin.model.pojo.EmpleadoP;
 import com.admin.resource.utils.ConfigTables;
 import com.admin.resource.utils.Global;
 import com.admin.resource.utils.Messages;

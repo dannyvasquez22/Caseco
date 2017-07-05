@@ -5,8 +5,8 @@
  */
 package DTOEntity;
 
-import com.admin.entity.dto.UsuarioDTO;
-import com.admin.entity.dto.DetalleCargoDTO;
+import com.admin.model.dto.UsuarioDTO;
+import com.admin.model.dto.DetalleCargoDTO;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

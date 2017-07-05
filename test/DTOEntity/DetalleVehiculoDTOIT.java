@@ -5,9 +5,9 @@
  */
 package DTOEntity;
 
-import com.admin.entity.dto.VehiculoDTO;
-import com.admin.entity.dto.GuiaRemisionDTO;
-import com.admin.entity.dto.DetalleVehiculoDTO;
+import com.admin.model.dto.VehiculoDTO;
+import com.admin.model.dto.GuiaRemisionDTO;
+import com.admin.model.dto.DetalleVehiculoDTO;
 import java.sql.Date;
 import java.sql.Time;
 import org.junit.After;

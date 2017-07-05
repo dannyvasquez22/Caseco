@@ -1,8 +1,8 @@
 package com.admin.view.units;
 
 import com.admin.controller.tablemodel.TUnidadMedida;
-import com.admin.entity.bl.UnidadMedidaBL;
-import com.admin.entity.dto.UnidadMedidaDTO;
+import com.admin.model.bl.UnidadMedidaBL;
+import com.admin.model.dto.UnidadMedidaDTO;
 import com.admin.resource.utils.ConfigTables;
 import com.admin.resource.utils.Global;
 import com.admin.resource.utils.Messages;

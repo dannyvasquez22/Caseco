@@ -2,10 +2,10 @@ package com.admin.view.provider;
 
 import com.admin.controller.tablemodel.TDetalleProveedor;
 import com.admin.controller.tablemodel.TProveedor;
-import com.admin.entity.bl.DetalleProveedorBL;
-import com.admin.entity.bl.ProveedorBL;
-import com.admin.entity.dto.DetalleProveedorDTO;
-import com.admin.entity.dto.ProveedorDTO;
+import com.admin.model.bl.DetalleProveedorBL;
+import com.admin.model.bl.ProveedorBL;
+import com.admin.model.dto.DetalleProveedorDTO;
+import com.admin.model.dto.ProveedorDTO;
 import com.admin.resource.utils.ConfigTables;
 import com.admin.resource.utils.ExportJTableExcel;
 import com.admin.resource.utils.Global;

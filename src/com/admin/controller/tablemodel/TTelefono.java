@@ -1,6 +1,6 @@
 package com.admin.controller.tablemodel;
 
-import com.admin.entity.dto.TelefonoDTO;
+import com.admin.model.dto.TelefonoDTO;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 

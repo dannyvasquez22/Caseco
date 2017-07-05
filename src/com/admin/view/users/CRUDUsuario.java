@@ -1,11 +1,11 @@
 package com.admin.view.users;
 
 import com.admin.controller.tablemodel.TUsuario;
-import com.admin.entity.bl.DetalleCargoBL;
-import com.admin.entity.bl.UsuarioBL;
-import com.admin.entity.dto.DetalleCargoDTO;
-import com.admin.entity.dto.UsuarioDTO;
-import com.admin.entity.pojo.ListaCrudUsuarioP;
+import com.admin.model.bl.DetalleCargoBL;
+import com.admin.model.bl.UsuarioBL;
+import com.admin.model.dto.DetalleCargoDTO;
+import com.admin.model.dto.UsuarioDTO;
+import com.admin.model.pojo.ListaCrudUsuarioP;
 import com.admin.resource.utils.ConfigTables;
 import com.admin.resource.utils.Global;
 import com.admin.resource.utils.Messages;

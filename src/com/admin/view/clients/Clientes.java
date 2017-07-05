@@ -2,8 +2,8 @@ package com.admin.view.clients;
 
 import com.admin.controller.tablemodel.TClienteBoleta;
 import com.admin.controller.tablemodel.TClienteFactura;
-import com.admin.entity.bl.ClienteBL;
-import com.admin.entity.dto.ClienteDTO;
+import com.admin.model.bl.ClienteBL;
+import com.admin.model.dto.ClienteDTO;
 import com.admin.resource.utils.ConfigTables;
 import com.admin.resource.utils.ExportJTableExcel;
 import com.admin.resource.utils.Global;

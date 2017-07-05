@@ -1,8 +1,8 @@
 package com.admin.view.users;
 
 import com.admin.controller.tablemodel.TConectadoUsuario;
-import com.admin.entity.bl.UsuarioBL;
-import com.admin.entity.pojo.ConectadoUsuarioP;
+import com.admin.model.bl.UsuarioBL;
+import com.admin.model.pojo.ConectadoUsuarioP;
 import com.admin.resource.utils.ConfigTables;
 import com.admin.resource.utils.Global;
 import com.admin.resource.utils.Messages;

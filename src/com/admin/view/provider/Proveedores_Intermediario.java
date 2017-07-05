@@ -2,12 +2,12 @@ package com.admin.view.provider;
 
 import com.admin.controller.tablemodel.TTelefonoVendedor;
 import com.admin.controller.tablemodel.TVendedor;
-import com.admin.entity.bl.TelefonoBL;
-import com.admin.entity.bl.VendedorBL;
-import com.admin.entity.dto.ProveedorDTO;
-import com.admin.entity.dto.TelefonoDTO;
-import com.admin.entity.dto.VendedorDTO;
-import com.admin.entity.pojo.TelefonoVendedorP;
+import com.admin.model.bl.TelefonoBL;
+import com.admin.model.bl.VendedorBL;
+import com.admin.model.dto.ProveedorDTO;
+import com.admin.model.dto.TelefonoDTO;
+import com.admin.model.dto.VendedorDTO;
+import com.admin.model.pojo.TelefonoVendedorP;
 import com.admin.resource.utils.ConfigTables;
 import com.admin.resource.utils.Global;
 import com.admin.resource.utils.Messages;

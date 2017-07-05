@@ -1,8 +1,8 @@
 package com.admin.view.products;
 
 import com.admin.controller.tablemodel.TTienda;
-import com.admin.entity.bl.TiendaBL;
-import com.admin.entity.dto.TiendaDTO;
+import com.admin.model.bl.TiendaBL;
+import com.admin.model.dto.TiendaDTO;
 import com.admin.resource.utils.ConfigTables;
 import com.admin.resource.utils.Global;
 import com.admin.resource.utils.Messages;

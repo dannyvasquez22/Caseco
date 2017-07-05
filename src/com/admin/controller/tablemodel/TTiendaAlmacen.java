@@ -1,6 +1,6 @@
 package com.admin.controller.tablemodel;
 
-import com.admin.entity.pojo.TiendaAlmacenP;
+import com.admin.model.pojo.TiendaAlmacenP;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 

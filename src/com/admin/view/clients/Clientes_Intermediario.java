@@ -2,12 +2,12 @@ package com.admin.view.clients;
 
 import com.admin.controller.tablemodel.TEmpleadoTratar;
 import com.admin.controller.tablemodel.TTelefonoEmpleadoTratar;
-import com.admin.entity.bl.EmpleadoTratarBL;
-import com.admin.entity.bl.TelefonoBL;
-import com.admin.entity.dto.ClienteDTO;
-import com.admin.entity.dto.EmpleadoTratarDTO;
-import com.admin.entity.dto.TelefonoDTO;
-import com.admin.entity.pojo.TelefonoEmpleadoTratarP;
+import com.admin.model.bl.EmpleadoTratarBL;
+import com.admin.model.bl.TelefonoBL;
+import com.admin.model.dto.ClienteDTO;
+import com.admin.model.dto.EmpleadoTratarDTO;
+import com.admin.model.dto.TelefonoDTO;
+import com.admin.model.pojo.TelefonoEmpleadoTratarP;
 import com.admin.resource.utils.ConfigTables;
 import com.admin.resource.utils.Global;
 import com.admin.resource.utils.Messages;

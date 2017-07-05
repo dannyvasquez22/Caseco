@@ -1,8 +1,8 @@
 package com.admin.view.products;
 
 import com.admin.controller.tablemodel.TCategoria;
-import com.admin.entity.bl.CategoriaBL;
-import com.admin.entity.dto.CategoriaDTO;
+import com.admin.model.bl.CategoriaBL;
+import com.admin.model.dto.CategoriaDTO;
 import com.admin.resource.utils.ConfigTables;
 import com.admin.resource.utils.Global;
 import com.admin.resource.utils.Messages;

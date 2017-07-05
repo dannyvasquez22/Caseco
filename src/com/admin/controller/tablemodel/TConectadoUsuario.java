@@ -1,6 +1,6 @@
 package com.admin.controller.tablemodel;
 
-import com.admin.entity.pojo.ConectadoUsuarioP;
+import com.admin.model.pojo.ConectadoUsuarioP;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 

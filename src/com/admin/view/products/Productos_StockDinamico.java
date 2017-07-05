@@ -1,10 +1,10 @@
 package com.admin.view.products;
 
 import com.admin.controller.tablemodel.TProductoAlmacenDynamic;
-import com.admin.entity.bl.AlmacenBL;
-import com.admin.entity.bl.ProductoBL;
-import com.admin.entity.bl.TiendaBL;
-import com.admin.entity.pojo.ProductoAlmacenP;
+import com.admin.model.bl.AlmacenBL;
+import com.admin.model.bl.ProductoBL;
+import com.admin.model.bl.TiendaBL;
+import com.admin.model.pojo.ProductoAlmacenP;
 import com.admin.resource.utils.ConfigTables;
 import com.admin.resource.utils.Global;
 import com.admin.resource.utils.Messages;

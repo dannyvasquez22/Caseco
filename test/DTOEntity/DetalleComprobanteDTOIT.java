@@ -5,9 +5,9 @@
  */
 package DTOEntity;
 
-import com.admin.entity.dto.ProductoDTO;
-import com.admin.entity.dto.DetalleComprobanteDTO;
-import com.admin.entity.dto.ComprobanteDTO;
+import com.admin.model.dto.ProductoDTO;
+import com.admin.model.dto.DetalleComprobanteDTO;
+import com.admin.model.dto.ComprobanteDTO;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

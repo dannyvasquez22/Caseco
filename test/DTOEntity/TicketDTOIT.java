@@ -5,10 +5,10 @@
  */
 package DTOEntity;
 
-import com.admin.entity.dto.TicketDTO;
-import com.admin.entity.dto.DetalleTiendaDTO;
-import com.admin.entity.dto.ClienteDTO;
-import com.admin.entity.dto.DetalleCargoDTO;
+import com.admin.model.dto.TicketDTO;
+import com.admin.model.dto.DetalleTiendaDTO;
+import com.admin.model.dto.ClienteDTO;
+import com.admin.model.dto.DetalleCargoDTO;
 import java.sql.Date;
 import java.sql.Time;
 import org.junit.After;

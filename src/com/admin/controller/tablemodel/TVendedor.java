@@ -1,6 +1,6 @@
 package com.admin.controller.tablemodel;
 
-import com.admin.entity.dto.VendedorDTO;
+import com.admin.model.dto.VendedorDTO;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 

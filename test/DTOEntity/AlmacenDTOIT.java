@@ -5,7 +5,7 @@
  */
 package DTOEntity;
 
-import com.admin.entity.dto.AlmacenDTO;
+import com.admin.model.dto.AlmacenDTO;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

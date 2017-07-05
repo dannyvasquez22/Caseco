@@ -5,8 +5,8 @@
  */
 package DTOEntity;
 
-import com.admin.entity.dto.DetalleCargoDTO;
-import com.admin.entity.dto.LicenciaDTO;
+import com.admin.model.dto.DetalleCargoDTO;
+import com.admin.model.dto.LicenciaDTO;
 import java.sql.Date;
 import org.junit.After;
 import org.junit.AfterClass;

@@ -1,8 +1,8 @@
 package com.admin.view.units;
 
 import com.admin.controller.tablemodel.TObservacion;
-import com.admin.entity.bl.ObservacionBL;
-import com.admin.entity.dto.ObservacionDTO;
+import com.admin.model.bl.ObservacionBL;
+import com.admin.model.dto.ObservacionDTO;
 import com.admin.resource.utils.ConfigTables;
 import com.admin.resource.utils.Global;
 import com.admin.resource.utils.Messages;

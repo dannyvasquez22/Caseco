@@ -5,8 +5,8 @@
  */
 package DTOEntity;
 
-import com.admin.entity.dto.EmpleadoTratarDTO;
-import com.admin.entity.dto.ClienteDTO;
+import com.admin.model.dto.EmpleadoTratarDTO;
+import com.admin.model.dto.ClienteDTO;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

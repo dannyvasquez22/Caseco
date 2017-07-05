@@ -1,8 +1,8 @@
 package com.admin.view.units;
 
 import com.admin.controller.tablemodel.TCargo;
-import com.admin.entity.bl.CargoBL;
-import com.admin.entity.dto.CargoDTO;
+import com.admin.model.bl.CargoBL;
+import com.admin.model.dto.CargoDTO;
 import com.admin.resource.utils.ConfigTables;
 import com.admin.resource.utils.Global;
 import com.admin.resource.utils.Messages;

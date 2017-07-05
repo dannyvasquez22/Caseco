@@ -1,7 +1,7 @@
 package com.admin.view.employee;
 
-import com.admin.entity.bl.DireccionBL;
-import com.admin.entity.dto.DireccionDTO;
+import com.admin.model.bl.DireccionBL;
+import com.admin.model.dto.DireccionDTO;
 import com.admin.resource.utils.Global;
 import com.admin.resource.utils.Messages;
 import java.sql.SQLException;

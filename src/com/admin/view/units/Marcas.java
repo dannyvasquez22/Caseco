@@ -1,8 +1,8 @@
 package com.admin.view.units;
 
 import com.admin.controller.tablemodel.TMarca;
-import com.admin.entity.bl.MarcaBL;
-import com.admin.entity.dto.MarcaDTO;
+import com.admin.model.bl.MarcaBL;
+import com.admin.model.dto.MarcaDTO;
 import com.admin.resource.utils.ConfigTables;
 import com.admin.resource.utils.Global;
 import com.admin.resource.utils.Messages;

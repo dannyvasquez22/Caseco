@@ -5,8 +5,8 @@
  */
 package DTOEntity;
 
-import com.admin.entity.dto.DetalleProveedorDTO;
-import com.admin.entity.dto.ProveedorDTO;
+import com.admin.model.dto.DetalleProveedorDTO;
+import com.admin.model.dto.ProveedorDTO;
 import java.sql.Date;
 import org.junit.After;
 import org.junit.AfterClass;

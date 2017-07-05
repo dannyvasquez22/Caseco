@@ -1,12 +1,12 @@
 package com.admin.view.units;
 
 import com.admin.controller.tablemodel.TTiendaAlmacen;
-import com.admin.entity.bl.AlmacenBL;
-import com.admin.entity.bl.DetalleTiendaBL;
-import com.admin.entity.dto.AlmacenDTO;
-import com.admin.entity.dto.DetalleTiendaDTO;
-import com.admin.entity.dto.TiendaDTO;
-import com.admin.entity.pojo.TiendaAlmacenP;
+import com.admin.model.bl.AlmacenBL;
+import com.admin.model.bl.DetalleTiendaBL;
+import com.admin.model.dto.AlmacenDTO;
+import com.admin.model.dto.DetalleTiendaDTO;
+import com.admin.model.dto.TiendaDTO;
+import com.admin.model.pojo.TiendaAlmacenP;
 import com.admin.resource.utils.ConfigTables;
 import com.admin.resource.utils.Global;
 import com.admin.resource.utils.Messages;

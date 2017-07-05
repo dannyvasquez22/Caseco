@@ -1,8 +1,8 @@
 package com.admin.view.units;
 
 import com.admin.controller.tablemodel.TVehiculo;
-import com.admin.entity.bl.VehiculoBL;
-import com.admin.entity.dto.VehiculoDTO;
+import com.admin.model.bl.VehiculoBL;
+import com.admin.model.dto.VehiculoDTO;
 import com.admin.resource.utils.ConfigTables;
 import com.admin.resource.utils.Global;
 import com.admin.resource.utils.Messages;

@@ -1,6 +1,6 @@
 package com.admin.controller.tablemodel;
 
-import com.admin.entity.dto.MarcaDTO;
+import com.admin.model.dto.MarcaDTO;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 

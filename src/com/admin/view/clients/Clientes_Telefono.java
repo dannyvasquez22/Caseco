@@ -1,8 +1,8 @@
 package com.admin.view.clients;
 
 import com.admin.controller.tablemodel.TTelefono;
-import com.admin.entity.bl.TelefonoBL;
-import com.admin.entity.dto.TelefonoDTO;
+import com.admin.model.bl.TelefonoBL;
+import com.admin.model.dto.TelefonoDTO;
 import com.admin.resource.utils.ConfigTables;
 import com.admin.resource.utils.Global;
 import com.admin.resource.utils.Messages;

@@ -1,8 +1,8 @@
 package com.admin.view.clients;
 
 import com.admin.controller.tablemodel.TCuenta;
-import com.admin.entity.bl.CuentaBancariaBL;
-import com.admin.entity.dto.CuentaBancariaDTO;
+import com.admin.model.bl.CuentaBancariaBL;
+import com.admin.model.dto.CuentaBancariaDTO;
 import com.admin.resource.utils.ConfigTables;
 import com.admin.resource.utils.Global;
 import com.admin.resource.utils.Messages;

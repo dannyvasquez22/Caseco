@@ -5,7 +5,7 @@
  */
 package DTOEntity;
 
-import com.admin.entity.dto.MarcaDTO;
+import com.admin.model.dto.MarcaDTO;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

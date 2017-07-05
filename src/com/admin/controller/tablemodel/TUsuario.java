@@ -1,6 +1,6 @@
 package com.admin.controller.tablemodel;
 
-import com.admin.entity.pojo.ListaCrudUsuarioP;
+import com.admin.model.pojo.ListaCrudUsuarioP;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 

@@ -1,6 +1,6 @@
 package com.admin.controller.tablemodel;
 
-import com.admin.entity.dto.EmpleadoTratarDTO;
+import com.admin.model.dto.EmpleadoTratarDTO;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 

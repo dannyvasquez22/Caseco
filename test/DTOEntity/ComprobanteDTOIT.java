@@ -5,11 +5,11 @@
  */
 package DTOEntity;
 
-import com.admin.entity.dto.GuiaRemisionDTO;
-import com.admin.entity.dto.ComprobanteDTO;
-import com.admin.entity.dto.ProveedorDTO;
-import com.admin.entity.dto.DetalleCargoDTO;
-import com.admin.entity.dto.OrdenCompraDTO;
+import com.admin.model.dto.GuiaRemisionDTO;
+import com.admin.model.dto.ComprobanteDTO;
+import com.admin.model.dto.ProveedorDTO;
+import com.admin.model.dto.DetalleCargoDTO;
+import com.admin.model.dto.OrdenCompraDTO;
 import java.sql.Date;
 import java.sql.Time;
 import org.junit.After;

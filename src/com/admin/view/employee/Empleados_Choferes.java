@@ -1,11 +1,11 @@
 package com.admin.view.employee;
 
 import com.admin.controller.tablemodel.TConductor;
-import com.admin.entity.bl.EmpleadoBL;
-import com.admin.entity.bl.LicenciaBL;
-import com.admin.entity.dto.DetalleCargoDTO;
-import com.admin.entity.dto.LicenciaDTO;
-import com.admin.entity.pojo.LicenciaP;
+import com.admin.model.bl.EmpleadoBL;
+import com.admin.model.bl.LicenciaBL;
+import com.admin.model.dto.DetalleCargoDTO;
+import com.admin.model.dto.LicenciaDTO;
+import com.admin.model.pojo.LicenciaP;
 import com.admin.resource.utils.ConfigTables;
 import com.admin.resource.utils.Global;
 import com.admin.resource.utils.Messages;

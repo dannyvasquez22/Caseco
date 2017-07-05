@@ -1,7 +1,7 @@
 package com.admin.controller.tablemodel;
 
-import com.admin.entity.dto.ProveedorDTO;
-import com.admin.entity.dto.ProveedorProductoDTO;
+import com.admin.model.dto.ProveedorDTO;
+import com.admin.model.dto.ProveedorProductoDTO;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 

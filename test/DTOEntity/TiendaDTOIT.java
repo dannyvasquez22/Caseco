@@ -5,7 +5,7 @@
  */
 package DTOEntity;
 
-import com.admin.entity.dto.TiendaDTO;
+import com.admin.model.dto.TiendaDTO;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

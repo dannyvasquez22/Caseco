@@ -1,6 +1,6 @@
 package com.admin.controller.tablemodel;
 
-import com.admin.entity.pojo.EmpleadoP;
+import com.admin.model.pojo.EmpleadoP;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 

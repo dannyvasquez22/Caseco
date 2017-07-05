@@ -1,8 +1,8 @@
 package com.admin.view.complements;
 
 import com.admin.resource.utils.Messages;
-import com.admin.entity.bl.UsuarioBL;
-import com.admin.entity.dto.UsuarioDTO;
+import com.admin.model.bl.UsuarioBL;
+import com.admin.model.dto.UsuarioDTO;
 import com.admin.resource.utils.Encript;
 import com.admin.resource.utils.Global;
 import com.admin.view.init.Menu;

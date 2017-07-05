@@ -5,8 +5,8 @@
  */
 package DTOEntity;
 
-import com.admin.entity.dto.UsuarioDTO;
-import com.admin.entity.dto.AccesoDTO;
+import com.admin.model.dto.UsuarioDTO;
+import com.admin.model.dto.AccesoDTO;
 import java.sql.Date;
 import java.sql.Time;
 import org.junit.After;
