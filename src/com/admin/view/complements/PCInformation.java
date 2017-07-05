@@ -1,7 +1,5 @@
 package com.admin.view.complements;
 
-import com.admin.resource.utils.Global;
-
 /** * @author DANNY VASQUEZ RAFAEL */
 
 public class PCInformation extends javax.swing.JDialog {
@@ -10,16 +8,6 @@ public class PCInformation extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
-        setResizable(false);
-        setIconImage(Global.ICON_IMAGE);
-        setCursor(Global.CURSOR);
-        this.setTitle("Información de Arquitectura");
-
-        lblQueComputadora.setText(System.getenv("COMPUTERNAME"));
-        lblQueUsuario.setText(System.getProperty("user.name"));
-        textProcesador.setText(System.getenv("PROCESSOR_IDENTIFIER"));
-        lblQueSO.setText(System.getProperty("os.name"));
-        lblQueJava.setText(System.getProperty("java.version"));
     }
 
     @SuppressWarnings("unchecked")
@@ -150,33 +138,18 @@ public class PCInformation extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                PCInformation dialog = new PCInformation(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel lblComputadora;
     private javax.swing.JLabel lblJava;
     private javax.swing.JLabel lblProcesador;
-    private javax.swing.JLabel lblQueComputadora;
-    private javax.swing.JLabel lblQueJava;
-    private javax.swing.JLabel lblQueSO;
-    private javax.swing.JLabel lblQueUsuario;
+    public javax.swing.JLabel lblQueComputadora;
+    public javax.swing.JLabel lblQueJava;
+    public javax.swing.JLabel lblQueSO;
+    public javax.swing.JLabel lblQueUsuario;
     private javax.swing.JLabel lblSO;
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JPanel panelInformacion;
     private javax.swing.JScrollPane scrollProcesador;
-    private javax.swing.JTextArea textProcesador;
+    public javax.swing.JTextArea textProcesador;
     // End of variables declaration//GEN-END:variables
 }

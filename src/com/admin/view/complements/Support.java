@@ -1,7 +1,5 @@
 package com.admin.view.complements;
 
-import com.admin.resource.utils.Global;
-
 /** * @author DANNY VASQUEZ RAFAEL */
 
 public class Support extends javax.swing.JDialog {
@@ -10,10 +8,6 @@ public class Support extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
-        setResizable(false);
-        setIconImage(Global.ICON_IMAGE);
-        setCursor(Global.CURSOR);
-        this.setTitle("Contacto para Sistemas");
     }
 
     @SuppressWarnings("unchecked")
@@ -33,11 +27,6 @@ public class Support extends javax.swing.JDialog {
         setTitle("Acerca");
 
         panelAyuda.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        panelAyuda.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelAyudaMouseClicked(evt);
-            }
-        });
 
         lblVersion.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         lblVersion.setText("Version 0.1");
@@ -83,7 +72,7 @@ public class Support extends javax.swing.JDialog {
             panelAyudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAyudaLayout.createSequentialGroup()
                 .addComponent(lblAviso)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(panelAyudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelAyudaLayout.createSequentialGroup()
                         .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -121,25 +110,6 @@ public class Support extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void panelAyudaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelAyudaMouseClicked
-        this.dispose();
-    }//GEN-LAST:event_panelAyudaMouseClicked
-
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                Support dialog = new Support(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel lblAviso;
     private javax.swing.JLabel lblCorreo;
@@ -148,6 +118,6 @@ public class Support extends javax.swing.JDialog {
     private javax.swing.JLabel lblNumero;
     private javax.swing.JLabel lblSistema;
     private javax.swing.JLabel lblVersion;
-    private javax.swing.JPanel panelAyuda;
+    public javax.swing.JPanel panelAyuda;
     // End of variables declaration//GEN-END:variables
 }

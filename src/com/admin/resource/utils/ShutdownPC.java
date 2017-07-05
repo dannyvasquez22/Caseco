@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class ShutdownPC {
     
-    public  void exec(String cmd) { 
+    public static void exec(String cmd) { 
         try { 
             Runtime.getRuntime().exec(cmd); 
         } catch (IOException e) { 

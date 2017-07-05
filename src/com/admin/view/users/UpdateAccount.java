@@ -1,29 +1,13 @@
-package com.admin.view.complements;
-
-import com.admin.resource.utils.Messages;
-import com.admin.model.bl.UsuarioBL;
-import com.admin.model.dto.UsuarioDTO;
-import com.admin.resource.utils.Encript;
-import com.admin.resource.utils.Global;
-import com.admin.view.init.Menu;
-import java.sql.SQLException;
-import org.apache.log4j.Logger;
+package com.admin.view.users;
 
 /** * @author DANNY VASQUEZ RAFAEL */
 
 public class UpdateAccount extends javax.swing.JDialog {
-    public String cambioUsuario;
-    private UsuarioDTO usuario;
-    final static Logger logger = Logger.getLogger(UpdateAccount.class);
 
     public UpdateAccount(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
-        setResizable(false);
-        setIconImage(Global.ICON_IMAGE);
-        setCursor(Global.CURSOR);
-        setTitle("Configuración de cuenta");
     }
 
     @SuppressWarnings("unchecked")
@@ -54,24 +38,14 @@ public class UpdateAccount extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         btnAceptar.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
-        btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/OK.png"))); // NOI18N
+        btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/admin/resource/images/OK.png"))); // NOI18N
         btnAceptar.setText("Aceptar");
         btnAceptar.setToolTipText("Botón para confirmar cambios.");
-        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAceptarActionPerformed(evt);
-            }
-        });
 
         btnCancelar.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
-        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/16.png"))); // NOI18N
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/admin/resource/images/16.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
         btnCancelar.setToolTipText("Botón para cerrar la ventana de configuraciones.");
-        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarActionPerformed(evt);
-            }
-        });
 
         tabConfiguracion.setBackground(new java.awt.Color(51, 153, 0));
         tabConfiguracion.setForeground(new java.awt.Color(0, 153, 0));
@@ -86,11 +60,6 @@ public class UpdateAccount extends javax.swing.JDialog {
 
         txtUsuario1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtUsuario1.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
-        txtUsuario1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsuario1ActionPerformed(evt);
-            }
-        });
 
         jLabel7.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
         jLabel7.setText("Para el cambio de ID de usuario se requiere la contraseña.");
@@ -157,21 +126,11 @@ public class UpdateAccount extends javax.swing.JDialog {
         jLabel3.setText("Nueva Contraseña:");
 
         txtPassVieja.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtPassVieja.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPassViejaActionPerformed(evt);
-            }
-        });
 
         jLabel4.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
         jLabel4.setText("Confirme Nueva Contraseña:");
 
         txtPassNueva.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtPassNueva.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPassNuevaActionPerformed(evt);
-            }
-        });
 
         txtPassConfirma.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
@@ -267,98 +226,9 @@ public class UpdateAccount extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        dispose();
-    }//GEN-LAST:event_btnCancelarActionPerformed
-
-    private void txtPassViejaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassViejaActionPerformed
-        txtPassNueva.requestFocus();
-    }//GEN-LAST:event_txtPassViejaActionPerformed
-
-    private void txtPassNuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassNuevaActionPerformed
-       txtPassConfirma.requestFocus();
-    }//GEN-LAST:event_txtPassNuevaActionPerformed
-
-    private void txtUsuario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuario1ActionPerformed
-        txtPass.requestFocus();
-    }//GEN-LAST:event_txtUsuario1ActionPerformed
-
-    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        boolean value = false;
-        try {
-            String contraseña, nuevaContraseña, decrypt = "";
-            usuario = UsuarioBL.getInstance().search(cambioUsuario);
-            if (usuario != null) {
-                contraseña = usuario.getContraseña();
-                decrypt = Encript.Desencriptar(contraseña);
-                
-                if (panelId.isVisible()) {  //Cambiando nombre de usuario
-                    if (!cambioUsuario.equals(txtUsuario1.getText())) {
-                        if (txtPass.getText().equals(decrypt)) {
-                            try {
-                                usuario.setCuenta(txtUsuario1.getText());
-                                usuario.setContraseña(contraseña);
-                                value = UsuarioBL.getInstance().update(usuario, cambioUsuario, null, 0);
-                                if (value) {
-                                    Menu.lblUsuario.setText(txtUsuario1.getText());
-                                    dispose();
-                                }
-                            } catch (SQLException ex) {
-                                Messages.messageError("Error: " + ex.getSQLState() + " - " + ex.toString());
-                                logger.error(ex);
-                            }
-                        } else {
-                            Messages.messageAlert("Contraseña incorrecta.");
-                        }
-                    } else {
-                        Messages.messageInformation("No hubo variación en el nombre de usuario.");
-                    }
-                }
-                if (panelContraseña.isVisible()) {
-                    if (txtPassVieja.getText().equals("")) {
-                        Messages.messageAlert("Es necesario ingresar su actual contraseña.");
-                    } else {
-                        if (txtPassVieja.getText().equals(decrypt)) {
-                            if (txtPassNueva.getText().equals(txtPassConfirma.getText())) {
-                                nuevaContraseña = Encript.Encriptar(txtPassNueva.getText());
-                                usuario.setCuenta(txtUsuario1.getText());
-                                value = UsuarioBL.getInstance().update(usuario, null, nuevaContraseña, 0);
-                                if (value) {
-                                    dispose();
-                                }
-                            } else {
-                                Messages.messageError("Las nuevas contraseñas no coinciden.");
-                            }
-                        } else {
-                            Messages.messageError("Actual contraseña incorrecta.");
-                        }
-                    }
-                }
-            }
-        } catch (SQLException ex) {
-            Messages.messageError("Error: " + ex.getSQLState() + " - " + ex.toString() + ". Botón: " + evt.getActionCommand());
-            logger.error(ex);
-        }
-    }//GEN-LAST:event_btnAceptarActionPerformed
-
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                UpdateAccount dialog = new UpdateAccount(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAceptar;
-    private javax.swing.JButton btnCancelar;
+    public javax.swing.JButton btnAceptar;
+    public javax.swing.JButton btnCancelar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -371,9 +241,9 @@ public class UpdateAccount extends javax.swing.JDialog {
     public javax.swing.JPanel panelContraseña;
     public javax.swing.JPanel panelId;
     private javax.swing.JTabbedPane tabConfiguracion;
-    private javax.swing.JPasswordField txtPass;
-    private javax.swing.JPasswordField txtPassConfirma;
-    private javax.swing.JPasswordField txtPassNueva;
+    public javax.swing.JPasswordField txtPass;
+    public javax.swing.JPasswordField txtPassConfirma;
+    public javax.swing.JPasswordField txtPassNueva;
     public javax.swing.JPasswordField txtPassVieja;
     public Folder.DJCTextFieldWithoutPop txtUsuario;
     public Folder.DJCTextFieldWithoutPop txtUsuario1;

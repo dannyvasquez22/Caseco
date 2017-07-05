@@ -1,6 +1,9 @@
 package com.admin.controller.init;
 
 // <editor-fold defaultstate="collapsed" desc="Importacion de clases">
+import com.admin.controller.complements.CPCInformation;
+import com.admin.controller.complements.CSupport;
+import com.admin.controller.users.CUpdateAccount;
 import com.admin.model.bl.AccesoBL;
 import com.admin.model.bl.ProductoBL;
 import com.admin.model.bl.UsuarioBL;
@@ -17,7 +20,7 @@ import com.admin.view.clients.Clientes;
 import com.admin.view.clients.Clientes_CRUDPadreFrame;
 import com.admin.view.complements.PCInformation;
 import com.admin.view.complements.Support;
-import com.admin.view.complements.UpdateAccount;
+import com.admin.view.users.UpdateAccount;
 import com.admin.view.employee.Empleado;
 import com.admin.view.employee.Empleados_CRUDPadreFrame;
 import com.admin.view.employee.Empleados_Choferes;
@@ -66,6 +69,12 @@ public class CMenu implements ActionListener {
     private final Menu view_menu;
     private Login view_login;
     private CLogin controller_login;
+    private PCInformation view_pc;
+    private CPCInformation controller_pc;
+    private Support view_support;
+    private CSupport controller_support;
+    private UpdateAccount view_account;
+    private CUpdateAccount controller_account;
     private final String nameUser;
     private final String fechaInicio;
     private final String horaInicio;
@@ -219,23 +228,15 @@ public class CMenu implements ActionListener {
                 logger.error(ex);
             }
         } else if (ae.getSource() == view_menu.ItemItemCuenta) { /*----------------------------------------*/
-            UpdateAccount ccon = new UpdateAccount(view_menu, true);
-            ccon.setSize(445, 240);
-            ccon.setLocationRelativeTo(view_menu);
-            ccon.panelContraseña.setVisible(false);
-            ccon.cambioUsuario = view_menu.lblUsuario.getText();
-            ccon.txtUsuario1.setText(view_menu.lblUsuario.getText());
-            ccon.txtUsuario1.requestFocus();
-            ccon.setVisible(true);
+            view_account = new UpdateAccount(view_menu, true);
+            controller_account = new CUpdateAccount(view_account, nameUser);
+            controller_account.iniciar(true);
+            view_account.setVisible(true);
         } else if (ae.getSource() == view_menu.ItemItemContraseña) {
-            UpdateAccount ccon = new UpdateAccount(view_menu, true);
-            ccon.setSize(445, 310);
-            ccon.setLocationRelativeTo(view_menu);
-            ccon.panelId.setVisible(false);
-            ccon.cambioUsuario = view_menu.lblUsuario.getText();
-            ccon.txtUsuario.setText(view_menu.lblUsuario.getText());
-            ccon.txtPassVieja.requestFocus();
-            ccon.setVisible(true);
+            view_account = new UpdateAccount(view_menu, true);
+            controller_account = new CUpdateAccount(view_account, nameUser);
+            controller_account.iniciar(false);
+            view_account.setVisible(true);
         } else if (ae.getSource() == view_menu.ItemCerrarSesion) {
             try {
                 exitProgram(1);
@@ -245,8 +246,7 @@ public class CMenu implements ActionListener {
             }
         } else if (ae.getSource() == view_menu.ShutDownPC) {
             Messages.messageOK("El equipo se apagará en 10 segundos ...");
-            ShutdownPC app = new ShutdownPC();
-            app.exec("shutdown -s -t 10");
+            ShutdownPC.exec("shutdown -s -t 10");
         } else if (ae.getSource() == view_menu.ItemNuevoArticulo) { /*--------------------------------------*/
             new Productos_CRUDPadreFrame(view_menu, true).setVisible(true);
         } else if (ae.getSource() == view_menu.ItemCodigoBarra) {
@@ -348,9 +348,7 @@ public class CMenu implements ActionListener {
         } else if (ae.getSource() == view_menu.itemItemReporteVentaXMes) {
             new VentaXMes_OpcionesReporte(view_menu, true).setVisible(true);
         } else if (ae.getSource() == view_menu.itemItemReporteVentaXEntregar) {
-            VentaXEntrega_OpcionesReporte a = new VentaXEntrega_OpcionesReporte(view_menu, true);
-            a.setLocationRelativeTo(null);
-            a.setVisible(true);
+            new VentaXEntrega_OpcionesReporte(view_menu, true).setVisible(true);
         } else if (ae.getSource() == view_menu.itemItemReporteArticulos) {
             //        String[] titulos ={"Nombre", "Marca", "Stock", "Almacen"};
             //        String consulta = "SELECT producto.prod_nombre AS Nombre,producto.marca_nombre AS Marca,detalle_almacen.detalm_stockActual AS Stock,almacen.alm_nombre AS Almacen FROM "
@@ -397,17 +395,22 @@ public class CMenu implements ActionListener {
                 logger.warn(ex);
             }
         } else if (ae.getSource() == view_menu.ItemAcercaDE) {
-            new Support(view_menu, true).setVisible(true);
+            view_support = new Support(view_menu, true);
+            controller_support = new CSupport(view_support);
+            controller_support.iniciar();
+            view_support.setVisible(true);
         } else if (ae.getSource() == view_menu.ItemBackUp) {
             backup = new JFileChooser();
             Backup.makeBackup(backup, backup.showSaveDialog(view_menu));
         } else if (ae.getSource() == view_menu.ItemManual) {
             
-        } else if (ae.getSource() == view_menu.ItemSistema) {
-            new PCInformation(view_menu, true).setVisible(true);
+        } else if (ae.getSource() == view_menu.ItemSistema) {            
+            view_pc = new PCInformation(view_menu, true);
+            controller_pc = new CPCInformation(view_pc);
+            controller_pc.iniciar();
+            view_pc.setVisible(true);
         } else if (ae.getSource() == view_menu.itemEjecutarBat) {
-            ShutdownPC app = new ShutdownPC();
-            app.exec("C:\\Users\\USUARIO\\Desktop\\Dowlands\\Backup.bat");
+            ShutdownPC.exec("C:\\Users\\USUARIO\\Desktop\\Dowlands\\Backup.bat");
         }
     }
     // </editor-fold>
