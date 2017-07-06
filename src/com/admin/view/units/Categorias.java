@@ -220,7 +220,7 @@ public class Categorias extends javax.swing.JDialog {
                     .addComponent(btnFinAnterior)
                     .addComponent(btnSiguiente)
                     .addComponent(btnFinSiguiente)
-                    .addComponent(txtPagina, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE))
+                    .addComponent(txtPagina, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelar)

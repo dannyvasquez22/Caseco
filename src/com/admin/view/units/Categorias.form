@@ -123,7 +123,7 @@
                   <Component id="btnFinAnterior" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnSiguiente" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnFinSiguiente" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtPagina" alignment="3" pref="23" max="32767" attributes="0"/>
+                  <Component id="txtPagina" alignment="0" min="-2" pref="23" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
