@@ -33,6 +33,15 @@ public class Categorias extends javax.swing.JDialog {
         txtNombre = new Folder.DJCTextFieldWithoutPop();
         txtDescripcion = new Folder.DJCTextFieldWithoutPop();
         lblNombre = new javax.swing.JLabel();
+        lblTotalRegistros = new javax.swing.JLabel();
+        lblPagina = new javax.swing.JLabel();
+        lblRegistroXPagina = new javax.swing.JLabel();
+        txtPagina = new javax.swing.JTextField();
+        btnAnterior = new javax.swing.JButton();
+        btnFinAnterior = new javax.swing.JButton();
+        btnSiguiente = new javax.swing.JButton();
+        btnFinSiguiente = new javax.swing.JButton();
+        boxRegistroXPagina = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -99,6 +108,31 @@ public class Categorias extends javax.swing.JDialog {
         lblNombre.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         lblNombre.setText("(*) Nombre:");
 
+        lblTotalRegistros.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
+        lblTotalRegistros.setText("X registros.");
+
+        lblPagina.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
+        lblPagina.setText("Página 1 de 6");
+
+        lblRegistroXPagina.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
+        lblRegistroXPagina.setText("Registros por página:");
+
+        txtPagina.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
+        txtPagina.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtPagina.setText("1");
+
+        btnAnterior.setText("<");
+
+        btnFinAnterior.setText("<<");
+
+        btnSiguiente.setText(">");
+
+        btnFinSiguiente.setText(">>");
+
+        boxRegistroXPagina.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
+        boxRegistroXPagina.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "25", "50", "75" }));
+        boxRegistroXPagina.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -106,6 +140,17 @@ public class Categorias extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblAviso)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblRegistroXPagina)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(boxRegistroXPagina, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblDescripcion)
@@ -115,10 +160,6 @@ public class Categorias extends javax.swing.JDialog {
                             .addComponent(txtDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(scrollCategoria, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblAviso)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -126,19 +167,36 @@ public class Categorias extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnCancelarSeleccion)))
+                        .addComponent(btnCancelarSeleccion))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblTotalRegistros)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnFinAnterior)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnAnterior)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtPagina, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSiguiente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnFinSiguiente)
+                        .addGap(101, 101, 101)
+                        .addComponent(lblPagina)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(183, 183, 183)
-                .addComponent(lblTitulo)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblTitulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblTitulo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblRegistroXPagina)
+                            .addComponent(boxRegistroXPagina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(19, 19, 19)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombre)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -153,30 +211,48 @@ public class Categorias extends javax.swing.JDialog {
                     .addComponent(btnEliminar)
                     .addComponent(btnCancelarSeleccion, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(scrollCategoria, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scrollCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTotalRegistros)
+                    .addComponent(lblPagina)
+                    .addComponent(btnAnterior)
+                    .addComponent(btnFinAnterior)
+                    .addComponent(btnSiguiente)
+                    .addComponent(btnFinSiguiente)
+                    .addComponent(txtPagina, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE))
+                .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelar)
                     .addComponent(lblAviso))
-                .addGap(0, 13, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JComboBox<String> boxRegistroXPagina;
     public static javax.swing.JButton btnAgregar;
+    public javax.swing.JButton btnAnterior;
     public javax.swing.JButton btnCancelar;
     public javax.swing.JButton btnCancelarSeleccion;
     public static javax.swing.JButton btnEliminar;
+    public javax.swing.JButton btnFinAnterior;
+    public javax.swing.JButton btnFinSiguiente;
     public static javax.swing.JButton btnModificar;
+    public javax.swing.JButton btnSiguiente;
     private javax.swing.JLabel lblAviso;
     private javax.swing.JLabel lblDescripcion;
     private javax.swing.JLabel lblNombre;
+    public javax.swing.JLabel lblPagina;
+    private javax.swing.JLabel lblRegistroXPagina;
     private javax.swing.JLabel lblTitulo;
+    public javax.swing.JLabel lblTotalRegistros;
     private javax.swing.JScrollPane scrollCategoria;
     public javax.swing.JTable tblCategoria;
     public static Folder.DJCTextFieldWithoutPop txtDescripcion;
     public Folder.DJCTextFieldWithoutPop txtNombre;
+    public javax.swing.JTextField txtPagina;
     // End of variables declaration//GEN-END:variables
 }

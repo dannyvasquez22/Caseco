@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
 import org.apache.log4j.Logger;
 
 /** * @author DANNY VASQUEZ RAFAEL */
@@ -24,6 +25,12 @@ public class CCategorias implements ActionListener {
     private String cate_desc = "-";
     private int pregunta;
     private int total = 0;
+    private int filas = 0;
+    
+    private int pagina = -1;
+    private int totalPaginas = -1;
+    private int registroXPagina = -1;
+    
     private final Categorias view_categoria;
     final static Logger logger = Logger.getLogger(CCategorias.class);
 
@@ -35,6 +42,14 @@ public class CCategorias implements ActionListener {
         this.view_categoria.btnCancelarSeleccion.addActionListener(this);
         this.view_categoria.btnCancelar.addActionListener(this);
         this.view_categoria.txtNombre.addActionListener(this);
+        
+        this.view_categoria.boxRegistroXPagina.addActionListener(this);
+        this.view_categoria.txtPagina.addActionListener(this);
+        this.view_categoria.btnAnterior.addActionListener(this);
+        this.view_categoria.btnFinAnterior.addActionListener(this);
+        this.view_categoria.btnSiguiente.addActionListener(this);
+        this.view_categoria.btnFinSiguiente.addActionListener(this);
+        
         this.view_categoria.tblCategoria.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblCategoriaMouseClicked(evt);
@@ -62,10 +77,60 @@ public class CCategorias implements ActionListener {
     
     private void listarCategorias() throws SQLException {
         listCategoria.clear();
-        listCategoria = CategoriaBL.getInstance().getAll("");
+        pagina = Integer.parseInt(view_categoria.txtPagina.getText());
+        registroXPagina = Integer.parseInt((String) view_categoria.boxRegistroXPagina.getSelectedItem());
+        if (pagina == 1) {
+            listCategoria = CategoriaBL.getInstance().getAll("",  0, registroXPagina);
+        } else {
+            listCategoria = CategoriaBL.getInstance().getAll("",  (pagina * registroXPagina) - registroXPagina, registroXPagina);
+        }
+        paginacion();
         view_categoria.tblCategoria.setModel(new TCategoria(listCategoria));
         ConfigTables.headerTables(view_categoria.tblCategoria);
         ConfigTables.sizeCategory(view_categoria.tblCategoria);
+    }
+    
+    private void paginacion() {
+        try {
+            filas = CategoriaBL.getInstance().totalRow();
+            view_categoria.lblTotalRegistros.setText(filas + " registros.");
+//            System.out.println(Double.valueOf(filas) / Double.valueOf(registroXPagina));
+            if (registroXPagina >= filas) {
+                view_categoria.btnAnterior.setEnabled(false);
+                view_categoria.btnFinAnterior.setEnabled(false);
+                view_categoria.btnSiguiente.setEnabled(false);
+                view_categoria.btnFinSiguiente.setEnabled(false);
+                view_categoria.txtPagina.setEnabled(false);
+                pagina = 1;
+                totalPaginas = 1;
+            } else {
+                totalPaginas = (int) Math.ceil(Double.valueOf(filas) / Double.valueOf(registroXPagina));
+                
+                if (pagina == 1) {
+                    view_categoria.btnAnterior.setEnabled(false);
+                    view_categoria.btnFinAnterior.setEnabled(false);
+                    view_categoria.btnSiguiente.setEnabled(true);
+                    view_categoria.btnFinSiguiente.setEnabled(true);
+                    view_categoria.txtPagina.setEnabled(true);
+                } else if (pagina == totalPaginas) {
+                    view_categoria.btnAnterior.setEnabled(true);
+                    view_categoria.btnFinAnterior.setEnabled(true);
+                    view_categoria.btnSiguiente.setEnabled(false);
+                    view_categoria.btnFinSiguiente.setEnabled(false);
+                    view_categoria.txtPagina.setEnabled(true);
+                } else {
+                    view_categoria.btnAnterior.setEnabled(true);
+                    view_categoria.btnFinAnterior.setEnabled(true);
+                    view_categoria.btnSiguiente.setEnabled(true);
+                    view_categoria.btnFinSiguiente.setEnabled(true);
+                    view_categoria.txtPagina.setEnabled(true);
+                }
+                
+            }
+            view_categoria.lblPagina.setText("Página " + pagina + " de " + totalPaginas);
+        } catch (SQLException ex) {
+            logger.error(ex);
+        }
     }
     
     private boolean esCategoriaRepetida(String nombreCategoria) {
@@ -192,6 +257,74 @@ public class CCategorias implements ActionListener {
             view_categoria.dispose();
         } else if (ae.getSource() == view_categoria.txtNombre) {
             view_categoria.txtDescripcion.requestFocus();
+        } else if (ae.getSource() == view_categoria.boxRegistroXPagina) {
+            try {
+                pagina = 1;
+                view_categoria.txtPagina.setText(String.valueOf(pagina));
+                listarCategorias();
+            } catch (SQLException ex) {
+                logger.error(ex);
+            }
+        } else if (ae.getSource() == view_categoria.btnAnterior) {
+            try {
+                int resta = Integer.parseInt(view_categoria.txtPagina.getText()) - 1;
+                if (1 == resta && totalPaginas > 1) {
+                    view_categoria.btnAnterior.setEnabled(false);
+                    view_categoria.btnFinAnterior.setEnabled(false);
+                    view_categoria.btnSiguiente.setEnabled(true);
+                    view_categoria.btnFinSiguiente.setEnabled(true);
+                    view_categoria.txtPagina.setEnabled(true);
+                } else if (1 >= resta && totalPaginas > 1) {
+                    view_categoria.btnAnterior.setEnabled(true);
+                    view_categoria.btnFinAnterior.setEnabled(true);
+                    view_categoria.btnSiguiente.setEnabled(true);
+                    view_categoria.btnFinSiguiente.setEnabled(true);
+                    view_categoria.txtPagina.setEnabled(true);
+                }
+                view_categoria.txtPagina.setText(String.valueOf(resta));
+                listarCategorias();
+            } catch (SQLException ex) {
+                logger.error(ex);
+            }
+        } else if (ae.getSource() == view_categoria.btnFinAnterior) {
+            try {
+                pagina = 1;
+                view_categoria.txtPagina.setText(String.valueOf(pagina));
+                listarCategorias();
+            } catch (SQLException ex) {
+                logger.error(ex);
+            }
+        } else if (ae.getSource() == view_categoria.btnSiguiente) {
+            try {
+                int resta = Integer.parseInt(view_categoria.txtPagina.getText()) + 1;
+                if (totalPaginas == resta && totalPaginas > 1) {
+                    view_categoria.btnAnterior.setEnabled(false);
+                    view_categoria.btnFinAnterior.setEnabled(false);
+                    view_categoria.btnSiguiente.setEnabled(true);
+                    view_categoria.btnFinSiguiente.setEnabled(true);
+                    view_categoria.txtPagina.setEnabled(true);
+                } else if (totalPaginas >= resta && totalPaginas > 1) {
+                    view_categoria.btnAnterior.setEnabled(true);
+                    view_categoria.btnFinAnterior.setEnabled(true);
+                    view_categoria.btnSiguiente.setEnabled(true);
+                    view_categoria.btnFinSiguiente.setEnabled(true);
+                    view_categoria.txtPagina.setEnabled(true);
+                }
+                view_categoria.txtPagina.setText(String.valueOf(resta));
+                listarCategorias();
+            } catch (SQLException ex) {
+                logger.error(ex);
+            }
+        } else if (ae.getSource() == view_categoria.btnFinSiguiente) {
+            try {
+                pagina = totalPaginas;
+                view_categoria.txtPagina.setText(String.valueOf(pagina));
+                listarCategorias();
+            } catch (SQLException ex) {
+                logger.error(ex);
+            }
+        } else if (ae.getSource() == view_categoria.txtPagina) {
+            
         }
     }
 

@@ -33,8 +33,8 @@ public class CategoriaBL {
         return CategoriaDAO.getInstance().deleteCategoria(almacen);
     }
     
-    public ArrayList<CategoriaDTO> getAll(String nombre) throws SQLException {
-        return CategoriaDAO.getInstance().getByAll(nombre);
+    public ArrayList<CategoriaDTO> getAll(String nombre, int pagina, int registro) throws SQLException {
+        return CategoriaDAO.getInstance().getByAll(nombre, pagina, registro);
     }
     
     public CategoriaDTO getById(String codigo) throws SQLException {
@@ -47,5 +47,9 @@ public class CategoriaBL {
     
     public ArrayList<String> listNamesByCombo() throws SQLException {
         return CategoriaDAO.getInstance().getNamesByCombo();
+    }
+    
+    public int totalRow() throws SQLException {
+        return CategoriaDAO.getInstance().totalRows();
     }
 }

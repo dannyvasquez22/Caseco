@@ -40,7 +40,7 @@ public class Productos_CRUDCategoria extends javax.swing.JDialog {
 
     private void listarCategorias(String nombre) throws SQLException {
         listCategoria.clear();
-        listCategoria = CategoriaBL.getInstance().getAll(nombre);
+        listCategoria = CategoriaBL.getInstance().getAll(nombre, -1, -1);
         tblCategoria.setModel(new TCategoria(listCategoria));
         ConfigTables.headerTables(tblCategoria);
         ConfigTables.sizeCategory(tblCategoria);
