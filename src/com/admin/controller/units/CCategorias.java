@@ -85,16 +85,16 @@ public class CCategorias implements ActionListener {
         } else {
             listCategoria = CategoriaBL.getInstance().getAll("",  (pagina * registroXPagina) - registroXPagina, registroXPagina);
         }
-        paginacion();
         view_categoria.tblCategoria.setModel(new TCategoria(listCategoria));
         ConfigTables.headerTables(view_categoria.tblCategoria);
         ConfigTables.sizeCategory(view_categoria.tblCategoria);
+        paginacion();
     }
     
     private void paginacion() {
         try {
             totalRegistros = CategoriaBL.getInstance().totalRow();
-            view_categoria.lblTotalRegistros.setText(totalRegistros + " registros.");
+            view_categoria.lblTotalRegistros.setText("Total: " + view_categoria.tblCategoria.getRowCount() + " de " + totalRegistros + " registros.");
             if (registroXPagina >= totalRegistros) {
                 ActivaPaginacion(4);
                 pagina = 1;

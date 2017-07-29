@@ -50,15 +50,15 @@ public class CategoriaDAO implements ICategoria {
     }
 
     @Override
-    public ArrayList<CategoriaDTO> getByAll(String nombre, int pagina, int registro) throws SQLException {
+    public ArrayList<CategoriaDTO> getByAll(String nombre, int pagina, int registrosPagina) throws SQLException {
         listCategoria = new ArrayList<>();
         categoria = null;
         if (nombre.equals("")) {
             ps = dbInstance.getConnection().prepareStatement("SELECT cate_nombre, cate_descripcion FROM categoria ORDER BY cate_nombre");
-            if (pagina > -1 && registro > -1) {
+            if (pagina > -1 && registrosPagina > -1) {
                 ps = dbInstance.getConnection().prepareStatement("SELECT SQL_CALC_FOUND_ROWS cate_nombre, cate_descripcion FROM categoria ORDER BY cate_nombre LIMIT ?, ?");
                 ps.setInt(1, pagina);
-                ps.setInt(2, registro);
+                ps.setInt(2, registrosPagina);
             }
         } else {
             ps = dbInstance.getConnection().prepareStatement("SELECT cate_nombre, cate_descripcion FROM categoria WHERE cate_nombre LIKE ? ORDER BY cate_nombre");
@@ -141,17 +141,7 @@ public class CategoriaDAO implements ICategoria {
         return listNamesCombo;
     }
 
-    @Override
     public int totalRows() throws SQLException {
-        value = -1;
-        ps = dbInstance.getConnection().prepareStatement("SELECT FOUND_ROWS() AS total");
-        rs = ps.executeQuery();
-        while (rs.next()) {
-            value = rs.getInt("total");
-        }
-        rs.close();
-        ps.close();
-        
-        return value;
+        return dbInstance.totalRows();
     }
 }

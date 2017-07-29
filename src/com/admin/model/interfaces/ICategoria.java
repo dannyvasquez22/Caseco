@@ -15,6 +15,5 @@ public interface ICategoria {
     public boolean updateCategoria(CategoriaDTO categoria, String nombreAnterior) throws SQLException;
     public boolean insertCategoria(CategoriaDTO categoria) throws SQLException;
     public boolean deleteCategoria(CategoriaDTO categoria) throws SQLException;
-    public int totalRows() throws SQLException;
     
 }
