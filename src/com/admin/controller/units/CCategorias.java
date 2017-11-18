@@ -31,6 +31,8 @@ public class CCategorias implements ActionListener {
     private int pagina = -1;
     private int totalPaginas = -1;
     private int registroXPagina = -1;
+    private int paginaVerInicio = 0;
+    private int paginaVerFin = 0;
     
     private final Categorias view_categoria;
     final static Logger logger = Logger.getLogger(CCategorias.class);
@@ -94,7 +96,13 @@ public class CCategorias implements ActionListener {
     private void paginacion() {
         try {
             totalRegistros = CategoriaBL.getInstance().totalRow();
-            view_categoria.lblTotalRegistros.setText("Total: " + view_categoria.tblCategoria.getRowCount() + " de " + totalRegistros + " registros.");
+            if (pagina == 1) {
+                view_categoria.lblTotalRegistros.setText("Mostrando de 1 al " + view_categoria.tblCategoria.getRowCount() + " de " + totalRegistros + " registros.");
+            } else {
+                paginaVerInicio = (((pagina - 1) * registroXPagina) + 1);
+                paginaVerFin = paginaVerInicio + (view_categoria.tblCategoria.getRowCount() - 1);
+                view_categoria.lblTotalRegistros.setText("Mostrando de " + paginaVerInicio + " al " + paginaVerFin + " de " + totalRegistros + " registros.");
+            }
             if (registroXPagina >= totalRegistros) {
                 ActivaPaginacion(4);
                 pagina = 1;
@@ -330,6 +338,8 @@ public class CCategorias implements ActionListener {
                     pagina = 1;
                 } else if (paginaEspecifica > totalPaginas) {
                     pagina = totalPaginas;                    
+                } else {
+                    pagina = paginaEspecifica;
                 }
                 view_categoria.txtPagina.setText(String.valueOf(pagina));
                 try {
