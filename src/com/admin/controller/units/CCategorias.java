@@ -90,10 +90,10 @@ public class CCategorias implements ActionListener {
         view_categoria.tblCategoria.setModel(new TCategoria(listCategoria));
         ConfigTables.headerTables(view_categoria.tblCategoria);
         ConfigTables.sizeCategory(view_categoria.tblCategoria);
-        paginacion();
+        componentesPaginacion();       
     }
     
-    private void paginacion() {
+    private void componentesPaginacion() {
         try {
             totalRegistros = CategoriaBL.getInstance().totalRow();
             if (pagina == 1) {

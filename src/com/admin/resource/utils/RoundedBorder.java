@@ -1,4 +1,5 @@
 package com.admin.resource.utils;
+
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Insets;
@@ -23,7 +24,7 @@ public class RoundedBorder implements Border {
     }
 
     public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
-        g.drawRoundRect(x, y, width - 1, height - 1, radius, radius);
+        g.drawRoundRect(x, y, width - 1, height - 1, radius, radius);        
     }
 
 }
