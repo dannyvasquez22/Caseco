@@ -2,6 +2,12 @@ package com.admin.resource.factory;
 
 public class CurrencyFactory {
 
+    /**
+     * Patron de diseño creacional, sirve para construir jerarquia de clases.
+     * Encapsula una jerarquia de objetos y reduce el conjunto de conceptos con los que se trabaja.
+     * @param country
+     * @return 
+     */
     public static Currency createCurrency(String country) {
         if (country.equalsIgnoreCase("India")) {
             return new Rupee();
@@ -13,11 +19,3 @@ public class CurrencyFactory {
         throw new IllegalArgumentException("No such currency");
     }
 }
-
-/*public class Factory {
-	public static void main (String args[]) {
-		String country = args[0];
-		Currency rupee = CurrencyFactory.createCurrency(country);
-		System.out.println(rupee.getSymbol());
-	}
-}*/
