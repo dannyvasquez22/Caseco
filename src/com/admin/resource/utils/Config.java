@@ -17,6 +17,7 @@ public final class Config {
     private String userName = settings[3];
     private String password = settings[4];
     private String url = "jdbc:mysql://" + host +  ":" + port + "/";
+    private String secure = "?useSSL=false"; // omite warning cuando no usamos SSL
     private ResultSet rs = null;
     private PreparedStatement ps = null;
     
@@ -37,7 +38,7 @@ public final class Config {
             /*Class.forName(driver);
             conecta=DriverManager.getConnection("jdbc:mysql://192.168.1.37:3306/ferreteriadino","cajero","1234");*/
             Class.forName(driver);
-            conecta = DriverManager.getConnection(url + dbName, userName, password);
+            conecta = DriverManager.getConnection(url + dbName + secure, userName, password);
         } catch (ClassNotFoundException | SQLException e) {
             Messages.messageAlert("Conexión fallida a la base de datos."); 
             destruir();
@@ -71,4 +72,34 @@ public final class Config {
             }
         }
     }    
+    
+    public static void close(ResultSet rs) {
+        try {
+            if (rs != null) {
+                rs.close();
+            }
+        } catch (SQLException ex) {
+            Messages.messageError(ex.toString());
+        }
+    }
+    
+    public static void close(PreparedStatement ps) {
+        try {
+            if (ps != null) {
+                ps.close();
+            }
+        } catch (SQLException ex) {
+            Messages.messageError(ex.toString());
+        }
+    }
+    
+    public static void close(Connection cn) {
+        try {
+            if (cn != null) {
+                cn.close();
+            }
+        } catch (SQLException ex) {
+            Messages.messageError(ex.toString());
+        }
+    }
 }
