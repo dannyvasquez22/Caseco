@@ -22,31 +22,31 @@ public class CategoriaBL {
     }
     
     public boolean insert(CategoriaDTO almacen) throws SQLException {
-        return CategoriaDAO.getInstance().insertCategoria(almacen);
+        return CategoriaDAO.getInstance().insert(almacen);
     }
     
     public boolean update(CategoriaDTO almacen, String nombreAnterior) throws SQLException {
-        return CategoriaDAO.getInstance().updateCategoria(almacen, nombreAnterior);
+        return CategoriaDAO.getInstance().updateExceptional(almacen, nombreAnterior);
     }
     
     public boolean delete(CategoriaDTO almacen) throws SQLException {
-        return CategoriaDAO.getInstance().deleteCategoria(almacen);
+        return CategoriaDAO.getInstance().delete(almacen);
     }
     
-    public ArrayList<CategoriaDTO> getAll(String nombre, int pagina, int registrosPagina) throws SQLException {
-        return CategoriaDAO.getInstance().getByAll(nombre, pagina, registrosPagina);
+    public ArrayList<CategoriaDTO> getAllPagination(String nombre, int pagina, int registrosPagina, int modeStatus) throws SQLException {
+        return CategoriaDAO.getInstance().getByAllPagination(nombre, pagina, registrosPagina, modeStatus);
     }
     
-    public CategoriaDTO getById(String codigo) throws SQLException {
-        return CategoriaDAO.getInstance().getById(codigo);
+    public CategoriaDTO getById(String codigo, int modeStatus) throws SQLException {
+        return CategoriaDAO.getInstance().getById(codigo, modeStatus);
     }
     
-    public int count(String codigo) throws SQLException {
-        return CategoriaDAO.getInstance().getElementChild(codigo);
+    public int count(String codigo, int modeStatus) throws SQLException {
+        return CategoriaDAO.getInstance().getElementChild(codigo, modeStatus);
     }
     
-    public ArrayList<String> listNamesByCombo() throws SQLException {
-        return CategoriaDAO.getInstance().getNamesByCombo();
+    public ArrayList<String> listNamesByCombo(int modeStatus) throws SQLException {
+        return CategoriaDAO.getInstance().getNamesByCombo(modeStatus);
     }
     
     public int totalRow() throws SQLException {

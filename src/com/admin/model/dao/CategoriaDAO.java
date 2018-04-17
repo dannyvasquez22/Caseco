@@ -2,6 +2,7 @@ package com.admin.model.dao;
 
 import com.admin.model.dto.CategoriaDTO;
 import com.admin.model.interfaces.ICategoria;
+import com.admin.model.interfaces.IGeneric;
 import com.admin.resource.utils.Config;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 
 /** * @author DANNY VASQUEZ RAFAEL */
 
-public class CategoriaDAO implements ICategoria {
+public class CategoriaDAO implements ICategoria, IGeneric<CategoriaDTO> {
     private static final Config dbInstance = Config.getInstance();
     private ResultSet rs = null;
     private PreparedStatement ps = null;
@@ -32,7 +33,7 @@ public class CategoriaDAO implements ICategoria {
     }    
     
     @Override
-    public CategoriaDTO getById(String nombre) throws SQLException {
+    public CategoriaDTO getById(String nombre, int modeStatus) throws SQLException {
         categoria = null;
         ps = dbInstance.getConnection().prepareStatement("SELECT cate_nombre, cate_descripcion FROM categoria WHERE cate_nombre = ?");
         ps.setString(1, nombre);
@@ -50,7 +51,7 @@ public class CategoriaDAO implements ICategoria {
     }
 
     @Override
-    public ArrayList<CategoriaDTO> getByAll(String nombre, int pagina, int registrosPagina) throws SQLException {
+    public ArrayList<CategoriaDTO> getByAllPagination(String nombre, int pagina, int registrosPagina, int modeStatus) throws SQLException {
         listCategoria = new ArrayList<>();
         categoria = null;
         if (nombre.equals("")) {
@@ -78,7 +79,7 @@ public class CategoriaDAO implements ICategoria {
     }
 
     @Override
-    public boolean updateCategoria(CategoriaDTO categoria, String nombreAnterior) throws SQLException {
+    public boolean updateExceptional(CategoriaDTO categoria, String nombreAnterior) throws SQLException {
         value = 0;
         ps = dbInstance.getConnection().prepareStatement("UPDATE categoria SET cate_nombre = ?, cate_descripcion = ? WHERE cate_nombre = ?");
         ps.setString(1, categoria.getNombre());
@@ -91,7 +92,7 @@ public class CategoriaDAO implements ICategoria {
     }
 
     @Override
-    public boolean insertCategoria(CategoriaDTO categoria) throws SQLException {
+    public boolean insert(CategoriaDTO categoria) throws SQLException {
         value = 0;
         ps = dbInstance.getConnection().prepareStatement("INSERT INTO categoria (cate_nombre, cate_descripcion) VALUES (?, ?)");
         ps.setString(1, categoria.getNombre());
@@ -103,7 +104,7 @@ public class CategoriaDAO implements ICategoria {
     }
 
     @Override
-    public boolean deleteCategoria(CategoriaDTO categoria) throws SQLException {
+    public boolean delete(CategoriaDTO categoria) throws SQLException {
         value = 0;
         ps = dbInstance.getConnection().prepareStatement("DELETE FROM categoria WHERE cate_nombre = ?");
         ps.setString(1, categoria.getNombre());
@@ -113,7 +114,7 @@ public class CategoriaDAO implements ICategoria {
     }
 
     @Override
-    public int getElementChild(String nombre) throws SQLException {
+    public int getElementChild(String nombre, int modeStatus) throws SQLException {
         value = 0;
         ps = dbInstance.getConnection().prepareStatement("SELECT COUNT(prod_codigo) AS total FROM producto WHERE cate_nombre = ?");
         ps.setString(1, nombre);
@@ -128,7 +129,7 @@ public class CategoriaDAO implements ICategoria {
     }
 
     @Override
-    public ArrayList<String> getNamesByCombo() throws SQLException {
+    public ArrayList<String> getNamesByCombo(int modeStatus) throws SQLException {
         listNamesCombo = new ArrayList<>();
         ps = dbInstance.getConnection().prepareStatement("SELECT cate_nombre AS nombre FROM categoria ORDER BY cate_nombre");
         rs = ps.executeQuery();
@@ -143,5 +144,25 @@ public class CategoriaDAO implements ICategoria {
 
     public int totalRows() throws SQLException {
         return dbInstance.totalRows();
+    }
+
+    @Override
+    public boolean update(CategoriaDTO object) throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public CategoriaDTO getById(int id, int modeStatus) throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public CategoriaDTO getByName(String name, int modeStatus) throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public ArrayList<CategoriaDTO> getByAll(int modeStatus) throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

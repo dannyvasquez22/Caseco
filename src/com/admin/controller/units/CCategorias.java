@@ -83,9 +83,9 @@ public class CCategorias implements ActionListener {
         pagina = Integer.parseInt(view_categoria.txtPagina.getText());
         registroXPagina = Integer.parseInt((String) view_categoria.boxRegistroXPagina.getSelectedItem());
         if (pagina == 1) {
-            listCategoria = CategoriaBL.getInstance().getAll("",  0, registroXPagina);
+            listCategoria = CategoriaBL.getInstance().getAllPagination("",  0, registroXPagina, 2);
         } else {
-            listCategoria = CategoriaBL.getInstance().getAll("",  (pagina * registroXPagina) - registroXPagina, registroXPagina);
+            listCategoria = CategoriaBL.getInstance().getAllPagination("",  (pagina * registroXPagina) - registroXPagina, registroXPagina, 2);
         }
         view_categoria.tblCategoria.setModel(new TCategoria(listCategoria));
         ConfigTables.headerTables(view_categoria.tblCategoria);
@@ -146,7 +146,7 @@ public class CCategorias implements ActionListener {
         pregunta = Messages.messageDeactive();
         if (pregunta == 0) {
             try {
-                articulosRelacionados = CategoriaBL.getInstance().count(view_categoria.tblCategoria.getValueAt(filaCategoria, 0).toString());
+                articulosRelacionados = CategoriaBL.getInstance().count(view_categoria.tblCategoria.getValueAt(filaCategoria, 0).toString(), 2);
                 if (articulosRelacionados == 0) {
                     categoria = new CategoriaDTO(
                             view_categoria.tblCategoria.getValueAt(filaCategoria, 0).toString()

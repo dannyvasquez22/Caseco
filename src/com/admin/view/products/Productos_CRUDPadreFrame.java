@@ -119,11 +119,11 @@ public class Productos_CRUDPadreFrame extends javax.swing.JDialog {
     public static void listarCategoriaBox() {
         nombresCategoriaCombo = new ArrayList<>();
         try {
-            nombresCategoriaCombo = CategoriaBL.getInstance().listNamesByCombo();
+            nombresCategoriaCombo = CategoriaBL.getInstance().listNamesByCombo(2);
             DefaultComboBoxModel modelo = new DefaultComboBoxModel();
-            for (String nombre : nombresCategoriaCombo) {
-                modelo.addElement(nombre);           
-            }
+            nombresCategoriaCombo.stream().forEach((nombre) -> {
+                modelo.addElement(nombre);
+            });
             boxCategorias.setModel(modelo);
         } catch (SQLException ex) {
             Messages.messageError("Error: " + ex.getSQLState() + " - " + ex.toString());
@@ -136,9 +136,9 @@ public class Productos_CRUDPadreFrame extends javax.swing.JDialog {
         try {
             nombresUnidadCombo = UnidadMedidaBL.getInstance().listNamesByCombo();
             DefaultComboBoxModel modelo = new DefaultComboBoxModel();
-            for (String nombre : nombresUnidadCombo) {
-                modelo.addElement(nombre);           
-            }
+            nombresUnidadCombo.stream().forEach((nombre) -> {
+                modelo.addElement(nombre);
+            });
             boxUnidades.setModel(modelo);
         } catch (SQLException ex) {
             Messages.messageError("Error: " + ex.getSQLState() + " - " + ex.toString());
@@ -151,9 +151,9 @@ public class Productos_CRUDPadreFrame extends javax.swing.JDialog {
         try {            
             nombresTiendaCombo = TiendaBL.getInstance().listNamesByCombo();
             DefaultComboBoxModel modelo = new DefaultComboBoxModel();
-            for (String nombre : nombresTiendaCombo) {
+            nombresTiendaCombo.stream().forEach((nombre) -> {
                 modelo.addElement(nombre);
-            }
+            });
             tiendabox.setModel(modelo);
             listarTiendaAlmacenBox(tiendabox.getSelectedItem().toString());
         } catch (SQLException ex) {
@@ -167,9 +167,9 @@ public class Productos_CRUDPadreFrame extends javax.swing.JDialog {
         try {            
             nombresTiendaAlmacenCombo = AlmacenBL.getInstance().listNamesByStoreByCombo(tiendaRazonSocial);
             DefaultComboBoxModel modelo = new DefaultComboBoxModel();
-            for (String nombre : nombresTiendaAlmacenCombo) {
+            nombresTiendaAlmacenCombo.stream().forEach((nombre) -> {
                 modelo.addElement(nombre);
-            }
+            });
             almacombo.setModel(modelo);
         } catch (SQLException ex) {
             Messages.messageError("Error: " + ex.getSQLState() + " - " + ex.toString());
