@@ -54,11 +54,13 @@ public class CCategorias implements ActionListener {
         this.view_categoria.btnFinSiguiente.addActionListener(this);
         
         this.view_categoria.tblCategoria.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblCategoriaMouseClicked(evt);
             }
         });
         this.view_categoria.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 view_categoria.dispose();
             }

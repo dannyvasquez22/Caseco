@@ -152,14 +152,14 @@ public class Login extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnIniciar;
-    public static javax.swing.JButton btnSalir;
+    public javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel3;
     public javax.swing.JLabel lblIP;
     public javax.swing.JLabel lblMensaje;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblUsuario;
-    public static javax.swing.JProgressBar progressBar;
+    public javax.swing.JProgressBar progressBar;
     public Folder.DMJCPasswordField txtPassword;
     public Folder.DMJCTextField txtUsuario;
     // End of variables declaration//GEN-END:variables

@@ -4,6 +4,7 @@ package com.admin.view.complements;
 
 public class Support extends javax.swing.JDialog {
 
+    @SuppressWarnings("OverridableMethodCallInConstructor")
     public Support(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();

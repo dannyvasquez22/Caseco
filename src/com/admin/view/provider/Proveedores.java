@@ -13,8 +13,10 @@ import com.admin.resource.utils.Messages;
 import java.awt.Color;
 import java.awt.Font;
 import java.io.File;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -38,6 +40,7 @@ public class Proveedores extends javax.swing.JDialog {
     private Proveedores_Telefono telfprove;
     final static Logger logger = Logger.getLogger(Proveedores.class);
 
+    @SuppressWarnings("OverridableMethodCallInConstructor")
     public Proveedores(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -653,7 +656,7 @@ public class Proveedores extends javax.swing.JDialog {
 
     private void itemEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemEliminarActionPerformed
         if (filaProveedor >= 0) {
-            fechaFinProveedor = Global.CALENDARY.get(Global.CALENDARY.YEAR) + "-" + (Global.CALENDARY.get(Global.CALENDARY.MONTH) + 1) + "-" + Global.CALENDARY.get(Global.CALENDARY.DATE);
+            fechaFinProveedor = Global.CALENDARY.get(Calendar.YEAR) + "-" + (Global.CALENDARY.get(Calendar.MONTH) + 1) + "-" + Global.CALENDARY.get(Calendar.DATE);
             try {
                 detalleProveedor = new DetalleProveedorDTO(
                         fechaFinProveedor,
@@ -702,7 +705,7 @@ public class Proveedores extends javax.swing.JDialog {
 
     private void btnDesactivarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesactivarActionPerformed
         if (filaProveedor >= 0) {
-            fechaFinProveedor = Global.CALENDARY.get(Global.CALENDARY.YEAR) + "-" + (Global.CALENDARY.get(Global.CALENDARY.MONTH) + 1) + "-" + Global.CALENDARY.get(Global.CALENDARY.DATE);
+            fechaFinProveedor = Global.CALENDARY.get(Calendar.YEAR) + "-" + (Global.CALENDARY.get(Calendar.MONTH) + 1) + "-" + Global.CALENDARY.get(Calendar.DATE);
             try {
                 detalleProveedor = new DetalleProveedorDTO(
                         fechaFinProveedor,
@@ -738,7 +741,7 @@ public class Proveedores extends javax.swing.JDialog {
 
     private void itemPopupDesactivarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemPopupDesactivarActionPerformed
         if (filaProveedor >= 0) {
-            fechaFinProveedor = Global.CALENDARY.get(Global.CALENDARY.YEAR) + "-" + (Global.CALENDARY.get(Global.CALENDARY.MONTH) + 1) + "-" + Global.CALENDARY.get(Global.CALENDARY.DATE);
+            fechaFinProveedor = Global.CALENDARY.get(Calendar.YEAR) + "-" + (Global.CALENDARY.get(Calendar.MONTH) + 1) + "-" + Global.CALENDARY.get(Calendar.DATE);
             try {
                 detalleProveedor = new DetalleProveedorDTO(
                         fechaFinProveedor,
@@ -959,7 +962,7 @@ public class Proveedores extends javax.swing.JDialog {
 
     private void btnActivarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActivarActionPerformed
         if (filaProveedor >= 0) {
-            fechaInicioProveedor = Global.CALENDARY.get(Global.CALENDARY.YEAR) + "-" + (Global.CALENDARY.get(Global.CALENDARY.MONTH) + 1) + "-" + Global.CALENDARY.get(Global.CALENDARY.DATE);
+            fechaInicioProveedor = Global.CALENDARY.get(Calendar.YEAR) + "-" + (Global.CALENDARY.get(Calendar.MONTH) + 1) + "-" + Global.CALENDARY.get(Calendar.DATE);
             try {
                 detalleProveedor = new DetalleProveedorDTO(
                         fechaInicioProveedor,
@@ -978,7 +981,7 @@ public class Proveedores extends javax.swing.JDialog {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
        if (filaProveedor >= 0) {
-            fechaInicioProveedor = Global.CALENDARY.get(Global.CALENDARY.YEAR) + "-" + (Global.CALENDARY.get(Global.CALENDARY.MONTH) + 1) + "-" + Global.CALENDARY.get(Global.CALENDARY.DATE);
+            fechaInicioProveedor = Global.CALENDARY.get(Calendar.YEAR) + "-" + (Global.CALENDARY.get(Calendar.MONTH) + 1) + "-" + Global.CALENDARY.get(Calendar.DATE);
             try {
                 detalleProveedor = new DetalleProveedorDTO(
                         fechaInicioProveedor,
@@ -997,7 +1000,7 @@ public class Proveedores extends javax.swing.JDialog {
 
     private void itemPopupActivarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemPopupActivarActionPerformed
         if (filaProveedor >= 0) {
-            fechaInicioProveedor = Global.CALENDARY.get(Global.CALENDARY.YEAR) + "-" + (Global.CALENDARY.get(Global.CALENDARY.MONTH) + 1) + "-" + Global.CALENDARY.get(Global.CALENDARY.DATE);
+            fechaInicioProveedor = Global.CALENDARY.get(Calendar.YEAR) + "-" + (Global.CALENDARY.get(Calendar.MONTH) + 1) + "-" + Global.CALENDARY.get(Calendar.DATE);
             try {
                 detalleProveedor = new DetalleProveedorDTO(
                         fechaInicioProveedor,
@@ -1017,21 +1020,19 @@ public class Proveedores extends javax.swing.JDialog {
     public void llamaExcel() {
         try {
             Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + "C:/Users/ALMACEN1/Desktop/Reportes/REGISTRO DE PROVEEDORES.xls");
-        } catch (Exception e) {       System.out.println("No se pudo completar la tarea");        }
+        } catch (IOException e) {       System.out.println("No se pudo completar la tarea");        }
     }
 
     public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                Proveedores dialog = new Proveedores(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            Proveedores dialog = new Proveedores(new javax.swing.JFrame(), true);
+            dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                @Override
+                public void windowClosing(java.awt.event.WindowEvent e) {
+                    System.exit(0);
+                }
+            });
+            dialog.setVisible(true);
         });
     }
 

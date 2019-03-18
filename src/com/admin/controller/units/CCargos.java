@@ -49,11 +49,13 @@ public class CCargos extends MouseAdapter implements ActionListener {
         this.view_cargo.lblActivos.addMouseListener(this);
         this.view_cargo.lblInactivos.addMouseListener(this);
         this.view_cargo.tblCargos.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblCargosMouseClicked(evt);
             }
         });
         this.view_cargo.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 view_cargo.dispose();
             }
@@ -67,7 +69,7 @@ public class CCargos extends MouseAdapter implements ActionListener {
         view_cargo.setTitle("Listado de Cargos de Empleados");
         view_cargo.lblActivos.setFont(new Font("Verdana", Font.BOLD, 12));
         view_cargo.lblActivos.setForeground(Color.blue); 
-        fechaCreacion = Global.CALENDARY.get(Calendar.YEAR) + "-" + (Global.CALENDARY.get(Global.CALENDARY.MONTH) + 1) + "-" + Global.CALENDARY.get(Global.CALENDARY.DATE);
+        fechaCreacion = Global.CALENDARY.get(Calendar.YEAR) + "-" + (Global.CALENDARY.get(Calendar.MONTH) + 1) + "-" + Global.CALENDARY.get(Calendar.DATE);
         verificarParametros();        
         view_cargo.txtNombre.requestFocus();
     }

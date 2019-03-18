@@ -3,7 +3,7 @@ package com.admin.view.units;
 import com.admin.resource.utils.RoundedBorder;
 
 /** * @author DANNY VASQUEZ RAFAEL */
-
+@SuppressWarnings("OverridableMethodCallInConstructor")
 public class Categorias extends javax.swing.JDialog {
 
     public Categorias(java.awt.Frame parent, boolean modal) {
@@ -259,14 +259,14 @@ public class Categorias extends javax.swing.JDialog {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JComboBox<String> boxRegistroXPagina;
-    public static javax.swing.JButton btnAgregar;
+    public javax.swing.JButton btnAgregar;
     public javax.swing.JButton btnAnterior;
     public javax.swing.JButton btnCancelar;
     public javax.swing.JButton btnCancelarSeleccion;
-    public static javax.swing.JButton btnEliminar;
+    public javax.swing.JButton btnEliminar;
     public javax.swing.JButton btnFinAnterior;
     public javax.swing.JButton btnFinSiguiente;
-    public static javax.swing.JButton btnModificar;
+    public javax.swing.JButton btnModificar;
     public javax.swing.JButton btnSiguiente;
     private javax.swing.JLabel lblAviso;
     private javax.swing.JLabel lblDescripcion;
@@ -277,7 +277,7 @@ public class Categorias extends javax.swing.JDialog {
     public javax.swing.JLabel lblTotalRegistros;
     private javax.swing.JScrollPane scrollCategoria;
     public javax.swing.JTable tblCategoria;
-    public static Folder.DJCTextFieldWithoutPop txtDescripcion;
+    public Folder.DJCTextFieldWithoutPop txtDescripcion;
     public Folder.DJCTextFieldWithoutPop txtNombre;
     public javax.swing.JTextField txtPagina;
     // End of variables declaration//GEN-END:variables

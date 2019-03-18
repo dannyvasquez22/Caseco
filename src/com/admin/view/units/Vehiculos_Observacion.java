@@ -2,6 +2,7 @@ package com.admin.view.units;
 
 public class Vehiculos_Observacion extends javax.swing.JDialog {
 
+    @SuppressWarnings("OverridableMethodCallInConstructor")
     public Vehiculos_Observacion(java.awt.Dialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -186,23 +187,23 @@ public class Vehiculos_Observacion extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JButton btnAgregar;
+    public javax.swing.JButton btnAgregar;
     public javax.swing.JButton btnCancelar;
-    public static javax.swing.JButton btnEliminar;
-    public static javax.swing.JButton btnModificar;
+    public javax.swing.JButton btnEliminar;
+    public javax.swing.JButton btnModificar;
     public javax.swing.JButton btnQuitarSeleccion;
-    public static datechooser.beans.DateChooserCombo chooserFecha;
+    public datechooser.beans.DateChooserCombo chooserFecha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblAviso;
     private javax.swing.JLabel lblDescripcion;
-    public static javax.swing.JLabel lblEstado;
+    public javax.swing.JLabel lblEstado;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblVehiculo;
     public javax.swing.JLabel lblVehiculoOrigen;
     private javax.swing.JScrollPane scrollTblObservacion;
     private javax.swing.JScrollPane scrollTextObservacion;
-    public static javax.swing.JTable tblObservacion;
-    public static javax.swing.JTextArea textDescripcion;
-    public static Folder.DJCTextFieldWithoutPop txtFecha;
+    public javax.swing.JTable tblObservacion;
+    public javax.swing.JTextArea textDescripcion;
+    public Folder.DJCTextFieldWithoutPop txtFecha;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,6 +4,7 @@ package com.admin.view.complements;
 
 public class PCInformation extends javax.swing.JDialog {
 
+    @SuppressWarnings("OverridableMethodCallInConstructor")
     public PCInformation(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();

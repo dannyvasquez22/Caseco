@@ -38,7 +38,8 @@ public class AlmacenBL {
     }
     
     public AlmacenDTO getById(int codigo) throws SQLException {
-        return AlmacenDAO.getInstance().getById(codigo);
+//        return AlmacenDAO.getInstance().getById(codigo);
+        return (AlmacenDTO) AlmacenDAO.getInstance().getByAll().stream().filter((alm) -> alm.getCodigo() == codigo);
     }
     
     public AlmacenDTO getByName(String name) throws SQLException {

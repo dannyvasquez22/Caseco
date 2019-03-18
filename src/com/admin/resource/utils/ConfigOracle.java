@@ -7,10 +7,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.Properties;
 import java.util.ResourceBundle;
 
+@SuppressWarnings("UnusedAssignment")
 public final class ConfigOracle {
     
     private Connection conecta = null;
@@ -21,7 +23,7 @@ public final class ConfigOracle {
     private static String JDBC_USER;
     private static String JDBC_PASS;
     private static Driver driver = null;
-    private static String JDBC_FILE_NAME = "jdbc";
+    private static final String JDBC_FILE_NAME = "jdbc";
     private ResultSet rs = null;
     private PreparedStatement ps = null;
     
@@ -64,8 +66,8 @@ public final class ConfigOracle {
                 DriverManager.registerDriver(driver);
                 
                 conecta = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASS);
-            } catch (Exception e) {
-                Messages.messageAlert("Conexión fallida a la base de datos."); 
+            } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | SQLException e) {
+                Messages.messageAlert("Conexión fallida a la base de datos: " + Arrays.toString(e.getStackTrace())); 
                 destruir();
                 System.exit(1);
             }
@@ -93,8 +95,8 @@ public final class ConfigOracle {
         if (conecta != null) {
             try { 
                 conecta.close(); 
-            } catch(Exception e) {  
-                Messages.messageError("Ocurrió un fallo al cerrar la conexión a la base de datos."); 
+            } catch(SQLException e) {  
+                Messages.messageError("Ocurrió un fallo al cerrar la conexión a la base de datos: " + Arrays.toString(e.getStackTrace())); 
             }
         }
     }    

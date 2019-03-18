@@ -48,7 +48,8 @@ public class CUpdateAccount implements ActionListener {
             view_account.txtPassVieja.requestFocus();
         }
     }
-
+    
+    @SuppressWarnings("UnusedAssignment")
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == view_account.btnAceptar) {

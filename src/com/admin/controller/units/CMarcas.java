@@ -37,11 +37,13 @@ public class CMarcas implements ActionListener {
         this.view_marca.btnAceptar.addActionListener(this);
         this.view_marca.txtNombre.addActionListener(this);        
         this.view_marca.txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 ValidateForms.soloMayus(view_marca.txtNombre);
             }
         });
         this.view_marca.tblMarca.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblMarcaMouseClicked(evt);
             }

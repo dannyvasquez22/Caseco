@@ -17,6 +17,7 @@ public class ConectadoUsuario extends javax.swing.JDialog {
     private String []array = null;
     final static Logger logger = Logger.getLogger(ConectadoUsuario.class);
     
+    @SuppressWarnings("OverridableMethodCallInConstructor")
     public ConectadoUsuario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -351,17 +352,15 @@ public class ConectadoUsuario extends javax.swing.JDialog {
     }//GEN-LAST:event_lblDesconectadosMouseExited
 
     public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                ConectadoUsuario dialog = new ConectadoUsuario(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            ConectadoUsuario dialog = new ConectadoUsuario(new javax.swing.JFrame(), true);
+            dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                @Override
+                public void windowClosing(java.awt.event.WindowEvent e) {
+                    System.exit(0);
+                }
+            });
+            dialog.setVisible(true);
         });
     }
 

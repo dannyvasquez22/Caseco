@@ -7,9 +7,12 @@ import com.admin.resource.utils.Messages;
 import com.admin.resource.utils.Splash;
 import java.io.IOException;
 import java.net.ServerSocket;
+import org.apache.log4j.Logger;
 
 public class SplashScreen extends javax.swing.JFrame implements Runnable {
 
+    final static Logger logger = Logger.getLogger(SplashScreen.class);
+    
     public SplashScreen() {
         new Splash().TransCompFrame(this);
         initComponents();
@@ -67,17 +70,16 @@ public class SplashScreen extends javax.swing.JFrame implements Runnable {
             CLogin controller = new CLogin(VentanaPrincipal);
             controller.iniciar();
             VentanaPrincipal.setVisible(true);
-        } catch (Exception e) {   }
+        } catch (InterruptedException e) { 
+            logger.error(e);
+        }
     }
 
     public static void main(String args[]) {
 
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new SplashScreen().setVisible(true);
-                validaapertura();
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new SplashScreen().setVisible(true);
+            validaapertura();
         });
     }
 

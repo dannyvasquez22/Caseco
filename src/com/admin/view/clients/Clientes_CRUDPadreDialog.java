@@ -23,9 +23,11 @@ import com.admin.resource.utils.ConfigTables;
 import com.admin.resource.utils.Global;
 import com.admin.resource.utils.Messages;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTable;
@@ -66,6 +68,7 @@ public class Clientes_CRUDPadreDialog extends javax.swing.JDialog {
     private String browser, url;
     final static Logger logger = Logger.getLogger(Clientes_CRUDPadreDialog.class);
 
+    @SuppressWarnings("OverridableMethodCallInConstructor")
     public Clientes_CRUDPadreDialog(java.awt.Dialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -75,7 +78,7 @@ public class Clientes_CRUDPadreDialog extends javax.swing.JDialog {
         setCursor(Global.CURSOR);
         setTitle("Gestión de Clientes");
         Inicio();
-        fechaCreacion = Global.CALENDARY.get(Global.CALENDARY.YEAR) + "-" + (Global.CALENDARY.get(Global.CALENDARY.MONTH) + 1) + "-" + Global.CALENDARY.get(Global.CALENDARY.DATE);
+        fechaCreacion = Global.CALENDARY.get(Calendar.YEAR) + "-" + (Global.CALENDARY.get(Calendar.MONTH) + 1) + "-" + Global.CALENDARY.get(Calendar.DATE);
         chooserFechaCliente.setDateFormat(Global.FORMAT_DATE_CLIENT);
         chooserFechaObservacion.setDateFormat(Global.FORMAT_DATE_CLIENT);
     }
@@ -136,6 +139,7 @@ public class Clientes_CRUDPadreDialog extends javax.swing.JDialog {
     private void Inicio() {
         if (crudModificar == 0) {
             modeloTelefono = new DefaultTableModel() {
+                    @Override
                     public boolean isCellEditable(int row, int column) {
                         return false;
                 }};
@@ -146,6 +150,7 @@ public class Clientes_CRUDPadreDialog extends javax.swing.JDialog {
             ConfigTables.sizeModelCellphone(tblTelefono);
 
             modeloCuenta = new DefaultTableModel() {
+                    @Override
                     public boolean isCellEditable(int row, int column) {
                         return false;
                 }};
@@ -156,6 +161,7 @@ public class Clientes_CRUDPadreDialog extends javax.swing.JDialog {
             ConfigTables.sizeModelAccount(tblCuenta);
 
             modeloEmpleado = new DefaultTableModel() {
+                    @Override
                     public boolean isCellEditable(int row, int column) {
                         return false;
                 }};
@@ -166,6 +172,7 @@ public class Clientes_CRUDPadreDialog extends javax.swing.JDialog {
             ConfigTables.sizeModelEmployeeTry(tblIntermediario);
 
             modeloTelfEmpleado = new DefaultTableModel() {
+                    @Override
                     public boolean isCellEditable(int row, int column) {
                         return false;
                 }};
@@ -176,6 +183,7 @@ public class Clientes_CRUDPadreDialog extends javax.swing.JDialog {
             ConfigTables.sizeModelCellphoneEmployeeTry(tblMovilIntermediario);
 
             modeloObservacion = new DefaultTableModel() {
+                    @Override
                     public boolean isCellEditable(int row, int column) {
                         return false;
                 }};
@@ -2138,9 +2146,9 @@ public class Clientes_CRUDPadreDialog extends javax.swing.JDialog {
                 logger.error(ex);
             }
             DefaultComboBoxModel modelo = new DefaultComboBoxModel();
-            for (String nombre : nombreReferencia) {
+            nombreReferencia.forEach((nombre) -> {
                 modelo.addElement(nombre);
-            } 
+            }); 
             boxReferencia.setModel(modelo);
         }
         txtDniIntermediario.setText("");
@@ -2995,7 +3003,7 @@ public class Clientes_CRUDPadreDialog extends javax.swing.JDialog {
         try {
             String[] cmdarray = {browser, url};
              Runtime.getRuntime().exec(cmdarray);
-        } catch (Exception e) {      }
+        } catch (IOException e) {      }
     }//GEN-LAST:event_btnEmailActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
@@ -3131,21 +3139,19 @@ public class Clientes_CRUDPadreDialog extends javax.swing.JDialog {
         try {
             String[] cmdarray = {browser, url};
             Runtime.getRuntime().exec(cmdarray);
-        } catch (Exception e) {      }
+        } catch (IOException e) {      }
     }//GEN-LAST:event_btnVerificaRucActionPerformed
 
     public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                Clientes_CRUDPadreDialog dialog = new Clientes_CRUDPadreDialog(new javax.swing.JDialog(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            Clientes_CRUDPadreDialog dialog = new Clientes_CRUDPadreDialog(new javax.swing.JDialog(), true);
+            dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                @Override
+                public void windowClosing(java.awt.event.WindowEvent e) {
+                    System.exit(0);
+                }
+            });
+            dialog.setVisible(true);
         });
     }
 

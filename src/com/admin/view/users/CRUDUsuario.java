@@ -27,6 +27,7 @@ public class CRUDUsuario extends javax.swing.JDialog {
     private int pregunta;
     final static Logger logger = Logger.getLogger(CRUDUsuario.class);
 
+    @SuppressWarnings("OverridableMethodCallInConstructor")
     public CRUDUsuario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -656,17 +657,15 @@ public class CRUDUsuario extends javax.swing.JDialog {
     }//GEN-LAST:event_btnActivarActionPerformed
 
     public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                CRUDUsuario dialog = new CRUDUsuario(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            CRUDUsuario dialog = new CRUDUsuario(new javax.swing.JFrame(), true);
+            dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                @Override
+                public void windowClosing(java.awt.event.WindowEvent e) {
+                    System.exit(0);
+                }
+            });
+            dialog.setVisible(true);
         });
     }
 

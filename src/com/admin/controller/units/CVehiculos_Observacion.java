@@ -40,14 +40,13 @@ public class CVehiculos_Observacion implements ActionListener {
         this.view_observacion.btnQuitarSeleccion.addActionListener(this);
         this.view_observacion.btnCancelar.addActionListener(this);
         this.view_observacion.tblObservacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblObservacionMouseClicked(evt);
             }
         });
-        this.view_observacion.chooserFecha.addCommitListener(new datechooser.events.CommitListener() {
-            public void onCommit(datechooser.events.CommitEvent evt) {
-                chooserFechaOnCommit(evt);
-            }
+        this.view_observacion.chooserFecha.addCommitListener((datechooser.events.CommitEvent evt) -> {
+            chooserFechaOnCommit(evt);
         });
     }
     

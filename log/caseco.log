@@ -1,1 +1,1 @@
-06/07/2017 13:32:42 ERROR (com.admin.controller.units.CCategorias:actionPerformed:382) java.lang.NumberFormatException: For input string: "ab"
+05/01/2019 16:31:14 ERROR (com.admin.view.products.Productos:verificarParametros:102) com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: PROCEDURE ferreteria_dino.sp_listarProductos does not exist

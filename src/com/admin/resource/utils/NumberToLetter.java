@@ -1,6 +1,7 @@
 package com.admin.resource.utils;
 import java.util.regex.Pattern;
 
+@SuppressWarnings("UnusedAssignment")
 public class NumberToLetter {
     private static final String[] UNIDADES = {"", "un ", "dos ", "tres ", "cuatro ", "cinco ", "seis ", "siete ", "ocho ", "nueve "};
     private static final String[] DECENAS = {"diez ", "once ", "doce ", "trece ", "catorce ", "quince ", "dieciseis ",
@@ -15,7 +16,7 @@ public class NumberToLetter {
         //si el numero utiliza (.) en lugar de (,) -> se reemplaza
         numero = numero.replace(".", ",");
         //si el numero no tiene parte decimal, se le agrega ,00
-        if (numero.indexOf(",") == -1) {
+        if (!numero.contains(",")) {
             numero = numero + ",00";
         }
         //se valida formato de entrada -> 0,00 y 999 999 999,00

@@ -234,7 +234,7 @@ public class Cargos extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnActivar;
     public javax.swing.JButton btnAgregar;
-    public static javax.swing.JButton btnCancelar;
+    public javax.swing.JButton btnCancelar;
     public javax.swing.JButton btnDesactivar;
     public javax.swing.JButton btnModificar;
     public javax.swing.JButton btnSeleccion;

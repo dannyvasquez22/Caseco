@@ -2,6 +2,7 @@ package com.admin.view.units;
 
 public class Vehiculos extends javax.swing.JDialog {
 
+    @SuppressWarnings("OverridableMethodCallInConstructor")
     public Vehiculos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();

@@ -40,6 +40,7 @@ public class CTiendasAlmacen_Telefono implements ActionListener {
         this.view_telefono.btnQuitarSeleccion.addActionListener(this);
         this.view_telefono.btnCancelar.addActionListener(this);
         this.view_telefono.tblTelefono.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblTelefonoMouseClicked(evt);
             }

@@ -38,16 +38,19 @@ public class CUnidadesMedida implements ActionListener {
         this.view_unidad.txtNombre.addActionListener(this);
         this.view_unidad.txtValorRef.addActionListener(this);
         this.view_unidad.txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 ValidateForms.soloMayus(view_unidad.txtNombre);
             }
         });
         this.view_unidad.tblUnidades.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblUnidadesMouseClicked(evt);
             }
         });
         this.view_unidad.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 view_unidad.dispose();
             }

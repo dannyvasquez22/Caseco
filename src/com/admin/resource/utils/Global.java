@@ -12,7 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.Timer;
 
 /** * @author DANNY VASQUEZ RAFAEL */
-
+@SuppressWarnings("StaticNonFinalUsedInInitialization")
 public class Global {
     
     public static final SimpleDateFormat FORMAT_DATE_CLIENT = new SimpleDateFormat("dd/MM/yyyy");
@@ -31,9 +31,8 @@ public class Global {
     }
     
     public static Date formatDateClient(String inputDate) throws ParseException{
-//        System.out.println("asdadasdasdsadasdsadsadas");
-        java.util.Date date1 = FORMAT_DATE_SQL.parse(inputDate);
-        java.sql.Date date2 = new java.sql.Date(date1.getTime());
+//        java.util.Date date1 = FORMAT_DATE_SQL.parse(inputDate);
+//        java.sql.Date date2 = new java.sql.Date(date1.getTime());
 //        System.out.println(date1 + "   ---    " + date2);
         return java.sql.Date.valueOf(inputDate);
     }

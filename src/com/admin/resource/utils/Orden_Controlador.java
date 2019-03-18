@@ -6,6 +6,7 @@ import java.util.List;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+@SuppressWarnings("UnusedAssignment")
 public class Orden_Controlador {
     public static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
     public static SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");

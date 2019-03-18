@@ -17,8 +17,10 @@ import com.admin.resource.utils.ConfigTables;
 import com.admin.resource.utils.Global;
 import com.admin.resource.utils.Messages;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -50,6 +52,7 @@ public class Proveedores_CRUDPadreFrame extends javax.swing.JDialog {
     private int eliminaTelefonoIncluido;
     final static Logger logger = Logger.getLogger(Proveedores_CRUDPadreFrame.class);
 
+    @SuppressWarnings("OverridableMethodCallInConstructor")
     public Proveedores_CRUDPadreFrame(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -72,6 +75,7 @@ public class Proveedores_CRUDPadreFrame extends javax.swing.JDialog {
     
     private void modeloTablas() {
         modeloTelefono = new DefaultTableModel() {
+                @Override
                 public boolean isCellEditable(int row, int column) {
                     return false;
             }};
@@ -82,6 +86,7 @@ public class Proveedores_CRUDPadreFrame extends javax.swing.JDialog {
         ConfigTables.sizeModelCellphone(tblTelefono);
 
         modeloCuenta = new DefaultTableModel() {
+                @Override
                 public boolean isCellEditable(int row, int column) {
                     return false;
             }};
@@ -92,6 +97,7 @@ public class Proveedores_CRUDPadreFrame extends javax.swing.JDialog {
         ConfigTables.sizeModelAccount(tblCuenta);
 
         modeloVendedor = new DefaultTableModel() {
+                @Override
                 public boolean isCellEditable(int row, int column) {
                     return false;
             }};
@@ -102,6 +108,7 @@ public class Proveedores_CRUDPadreFrame extends javax.swing.JDialog {
         ConfigTables.sizeModelSellerProvider(tblIntermediario);
 
         modeloTelefonoVendedor = new DefaultTableModel() {
+                @Override
                 public boolean isCellEditable(int row, int column) {
                     return false;
             }};
@@ -112,6 +119,7 @@ public class Proveedores_CRUDPadreFrame extends javax.swing.JDialog {
         ConfigTables.sizeModelCellphoneSellerProvider(tblMovilIntermediario);
 
         modeloObservacion = new DefaultTableModel() {
+                @Override
                 public boolean isCellEditable(int row, int column) {
                     return false;
             }};
@@ -1222,7 +1230,7 @@ public class Proveedores_CRUDPadreFrame extends javax.swing.JDialog {
         textweb = "-";
         textmail = "-";
         codEmpleado = 0;
-        fechadetprovemysql = Global.CALENDARY.get(Global.CALENDARY.YEAR) + "-" + (Global.CALENDARY.get(Global.CALENDARY.MONTH) + 1) + "-" + Global.CALENDARY.get(Global.CALENDARY.DATE);
+        fechadetprovemysql = Global.CALENDARY.get(Calendar.YEAR) + "-" + (Global.CALENDARY.get(Calendar.MONTH) + 1) + "-" + Global.CALENDARY.get(Calendar.DATE);
         registroTelefono = new String[3];
         registroTelefono[0] = "";
         registroTelefono[1] = "";
@@ -1447,7 +1455,7 @@ public class Proveedores_CRUDPadreFrame extends javax.swing.JDialog {
         try {
             String[] cmdarray = {browser, url};
             Runtime.getRuntime().exec(cmdarray);
-        } catch (Exception ex) {  
+        } catch (IOException ex) {  
             Messages.messageAlert("Error al cargar navegador.");
             logger.warn(ex);
         }
@@ -1460,7 +1468,7 @@ public class Proveedores_CRUDPadreFrame extends javax.swing.JDialog {
         try {
             String[] cmdarray = {browser, url};
             Runtime.getRuntime().exec(cmdarray);
-        } catch (Exception ex) {   
+        } catch (IOException ex) {   
             Messages.messageAlert("Error al cargar navegador.");
             logger.warn(ex);
         }
@@ -1631,13 +1639,13 @@ public class Proveedores_CRUDPadreFrame extends javax.swing.JDialog {
     }//GEN-LAST:event_btnEliminarCuentaActionPerformed
 
     private void btnVerificaRucActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificaRucActionPerformed
-        String browser = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
-        String url = "http://www.sunat.gob.pe/cl-ti-itmrconsruc/jcrS00Alias";
+        browser = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
+        url = "http://www.sunat.gob.pe/cl-ti-itmrconsruc/jcrS00Alias";
         Browser.openURL(url);
         try {
             String[] cmdarray = {browser, url};
             Runtime.getRuntime().exec(cmdarray);
-        } catch (Exception ex) {   
+        } catch (IOException ex) {   
             Messages.messageAlert("Error al cargar navegador.");
             logger.warn(ex);
         }
@@ -2073,17 +2081,15 @@ public class Proveedores_CRUDPadreFrame extends javax.swing.JDialog {
     }//GEN-LAST:event_boxReferenciaActionPerformed
 
     public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                Proveedores_CRUDPadreFrame dialog = new Proveedores_CRUDPadreFrame(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            Proveedores_CRUDPadreFrame dialog = new Proveedores_CRUDPadreFrame(new javax.swing.JFrame(), true);
+            dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                @Override
+                public void windowClosing(java.awt.event.WindowEvent e) {
+                    System.exit(0);
+                }
+            });
+            dialog.setVisible(true);
         });
     }
 

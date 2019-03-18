@@ -13,6 +13,7 @@ public class Clientes_Direccion extends javax.swing.JDialog {
     private boolean result = false;
     final static Logger logger = Logger.getLogger(Clientes_Direccion.class);
 
+    @SuppressWarnings("OverridableMethodCallInConstructor")
     public Clientes_Direccion(java.awt.Dialog parent, boolean modal) {
         super(parent,modal);
         initComponents();
@@ -241,17 +242,15 @@ public class Clientes_Direccion extends javax.swing.JDialog {
     }//GEN-LAST:event_btnModificarActionPerformed
 
     public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                Clientes_Direccion dialog = new Clientes_Direccion(new javax.swing.JDialog(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            Clientes_Direccion dialog = new Clientes_Direccion(new javax.swing.JDialog(), true);
+            dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                @Override
+                public void windowClosing(java.awt.event.WindowEvent e) {
+                    System.exit(0);
+                }
+            });
+            dialog.setVisible(true);
         });
     }
 

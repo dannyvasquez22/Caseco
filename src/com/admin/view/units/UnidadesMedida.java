@@ -2,6 +2,7 @@ package com.admin.view.units;
 
 public class UnidadesMedida extends javax.swing.JDialog {
 
+    @SuppressWarnings("OverridableMethodCallInConstructor")
     public UnidadesMedida(java.awt.Frame parent,boolean modal) {
         super(parent, modal);
         initComponents();
@@ -177,10 +178,10 @@ public class UnidadesMedida extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
        
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JButton btnAgregar;
+    public javax.swing.JButton btnAgregar;
     public javax.swing.JButton btnCancelar;
-    public static javax.swing.JButton btnEliminar;
-    public static javax.swing.JButton btnModificar;
+    public javax.swing.JButton btnEliminar;
+    public javax.swing.JButton btnModificar;
     public javax.swing.JButton btnQuitarSeleccion;
     private javax.swing.JLabel lblDescripcion;
     private javax.swing.JLabel lblLlenado;
@@ -189,7 +190,7 @@ public class UnidadesMedida extends javax.swing.JDialog {
     private javax.swing.JLabel lblValorRef;
     private javax.swing.JScrollPane scrollUnidades;
     public javax.swing.JTable tblUnidades;
-    public static Folder.DJCTextFieldWithoutPop txtDescripcion;
+    public Folder.DJCTextFieldWithoutPop txtDescripcion;
     public Folder.DJCTextFieldWithoutPop txtNombre;
     public Folder.DJCTextFieldWithoutPop txtValorRef;
     // End of variables declaration//GEN-END:variables

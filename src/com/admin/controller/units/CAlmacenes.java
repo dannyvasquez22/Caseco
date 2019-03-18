@@ -36,16 +36,19 @@ public class CAlmacenes implements ActionListener {
         this.view_almacen.txtNombre.addActionListener(this);
         this.view_almacen.btnCancelar.addActionListener(this);
         this.view_almacen.tblAlmacen.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblAlmacenMouseClicked(evt);
             }
         });
         this.view_almacen.txtDireccion.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtDireccionKeyPressed(evt);
             }
         });
         this.view_almacen.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 view_almacen.dispose();
             }

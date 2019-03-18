@@ -31,6 +31,7 @@ public class Empleado extends javax.swing.JDialog {
     private int pregunta;
     final static Logger logger = Logger.getLogger(Empleado.class);
 
+    @SuppressWarnings("OverridableMethodCallInConstructor")
     public Empleado(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -85,9 +86,9 @@ public class Empleado extends javax.swing.JDialog {
         nombreCargo = new ArrayList<>();
         nombreCargo = CargoBL.getInstance().listAllByCombo(1);
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
-        for (String nombre : nombreCargo) {
-            modelo.addElement(nombre);           
-        }
+        nombreCargo.forEach((nombre) -> {
+            modelo.addElement(nombre);
+        });
         boxCargos.setModel(modelo);
     }
     
@@ -943,17 +944,15 @@ public class Empleado extends javax.swing.JDialog {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                Empleado dialog = new Empleado(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            Empleado dialog = new Empleado(new javax.swing.JFrame(), true);
+            dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                @Override
+                public void windowClosing(java.awt.event.WindowEvent e) {
+                    System.exit(0);
+                }
+            });
+            dialog.setVisible(true);
         });
     }
 

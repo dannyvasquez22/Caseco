@@ -17,6 +17,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +38,7 @@ public class Productos extends javax.swing.JDialog {
     private Productos_CRUDPadreDialog nuevos;
     final static Logger logger = Logger.getLogger(Productos.class);
 
+    @SuppressWarnings("OverridableMethodCallInConstructor")
     public Productos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -63,9 +65,9 @@ public class Productos extends javax.swing.JDialog {
         nombresTienda = new ArrayList<>();
         nombresTienda = TiendaBL.getInstance().listNamesByCombo();
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
-        for (String nombre : nombresTienda) {
-            modelo.addElement(nombre);           
-        }
+        nombresTienda.forEach((nombre) -> {
+            modelo.addElement(nombre);
+        });
         boxTienda.setModel(modelo);
     }
     
@@ -777,7 +779,9 @@ public class Productos extends javax.swing.JDialog {
     public void llamaExcel() {
         try {
             Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + "C:/Users/ALMACEN1/Desktop/Reportes/REGISTRO DE ARTICULOS.xls");
-        } catch (Exception e) {       Messages.messageError("No se pudo completar la tarea");        }
+        } catch (IOException e) {       
+            Messages.messageError("No se pudo completar la tarea: " + e.toString());
+        }
     }
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
@@ -1004,17 +1008,15 @@ public class Productos extends javax.swing.JDialog {
     }//GEN-LAST:event_itemPopupActivarActionPerformed
 
     public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                Productos dialog = new Productos(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            Productos dialog = new Productos(new javax.swing.JFrame(), true);
+            dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                @Override
+                public void windowClosing(java.awt.event.WindowEvent e) {
+                    System.exit(0);
+                }
+            });
+            dialog.setVisible(true);
         });
     }
 

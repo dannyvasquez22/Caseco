@@ -25,6 +25,7 @@ class Tarea1 extends TimerTask {
         timer.schedule(this, 2 * 1000, 3 * 1000);
     }
     
+    @Override
     public void run() {
         counter++;
         System.out.printf("Ejecución T1 %d @ t=%d\n", counter, System.currentTimeMillis() / 1000);
@@ -47,6 +48,7 @@ class Tarea2 implements Runnable {
         ses.scheduleAtFixedRate(this, 13 * 1000, 3 * 1000, TimeUnit.MILLISECONDS);
     }
     
+    @Override
     public void run() {
         counter++;
         System.out.printf("Ejecución T2 %d @ t=%d\n", counter, System.currentTimeMillis() / 1000);

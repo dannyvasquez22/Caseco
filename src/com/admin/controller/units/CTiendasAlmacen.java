@@ -51,11 +51,13 @@ public class CTiendasAlmacen implements ActionListener {
         this.view_almacen.btnCancelar.addActionListener(this);
         this.view_almacen.btnTelefonoLugar.addActionListener(this);
         this.view_almacen.tblLugarVenta.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblLugarVentaMouseClicked(evt);
             }
         });
         this.view_almacen.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 view_almacen.dispose();
             }
@@ -87,9 +89,9 @@ public class CTiendasAlmacen implements ActionListener {
         namesCombo = new ArrayList<>();
         modeloCombo = new DefaultComboBoxModel();
         namesCombo = AlmacenBL.getInstance().listNamesCombo();
-        for (String nameCombo : namesCombo) {
+        namesCombo.forEach((nameCombo) -> {
             modeloCombo.addElement(nameCombo);
-        }
+        });
         view_almacen.boxLugarVenta.setModel(modeloCombo);        
     }
     
@@ -133,7 +135,7 @@ public class CTiendasAlmacen implements ActionListener {
         if (ae.getSource() == view_almacen.btnAgregar) {
             inicializarVariables();
             Global.CALENDARY = Calendar.getInstance();
-            fechaFinDetalle = Global.CALENDARY.get(Global.CALENDARY.YEAR) + "-" + (Global.CALENDARY.get(Global.CALENDARY.MONTH) + 1) + "-" + Global.CALENDARY.get(Global.CALENDARY.DATE);
+            fechaFinDetalle = Global.CALENDARY.get(Calendar.YEAR) + "-" + (Global.CALENDARY.get(Calendar.MONTH) + 1) + "-" + Global.CALENDARY.get(Calendar.DATE);
 
             esRepetido = esRepetido(view_almacen.boxLugarVenta.getSelectedItem().toString());
             if (esRepetido == true) {
@@ -189,7 +191,7 @@ public class CTiendasAlmacen implements ActionListener {
         } else if (ae.getSource() == view_almacen.btnEliminar) {
             inicializarVariables();
             Global.CALENDARY = Calendar.getInstance();
-            fechaFinDetalle = Global.CALENDARY.get(Global.CALENDARY.YEAR) + "-" + (Global.CALENDARY.get(Global.CALENDARY.MONTH) + 1) + "-" + Global.CALENDARY.get(Global.CALENDARY.DATE);
+            fechaFinDetalle = Global.CALENDARY.get(Calendar.YEAR) + "-" + (Global.CALENDARY.get(Calendar.MONTH) + 1) + "-" + Global.CALENDARY.get(Calendar.DATE);
             pregunta = Messages.messageDeactive();
             if (0 == pregunta) {
                 try {

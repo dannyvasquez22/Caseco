@@ -67,8 +67,8 @@ public final class Config {
         if (conecta != null) {
             try { 
                 conecta.close(); 
-            } catch(Exception e) {  
-                Messages.messageError("Ocurrió un fallo al cerrar la conexión a la base de datos."); 
+            } catch(SQLException e) {  
+                Messages.messageError("Ocurrió un fallo al cerrar la conexión a la base de datos: " + e.getMessage()); 
             }
         }
     }    

@@ -77,20 +77,17 @@ public class ValidateForms {
                 char c = e.getKeyChar();
                 if (Character.isDigit(c)) {
                     e.consume();
-                    Toolkit.getDefaultToolkit().beep();;
+                    Toolkit.getDefaultToolkit().beep();
                 }
             }
         });
     }
-
+    
+    @SuppressWarnings("UnusedAssignment")
     public static boolean estaVacio(JTextField txt) {//Validar que campos no esten vacios
         boolean valor = false;
         String val = txt.getText().trim();
-        if (val.isEmpty()) {
-            valor = false;
-        } else {
-            valor = true;
-        }
+        valor = !val.isEmpty();
         return valor;
     }
 
@@ -101,11 +98,7 @@ public class ValidateForms {
             valor = false;
         } else {
             while ((!valor) && puntero < p1.length) {
-                if (p1[puntero] != p2[puntero]) {
-                    valor = false;
-                } else {
-                    valor = true;
-                }
+                valor = p1[puntero] == p2[puntero];
             }
         }
         return valor;

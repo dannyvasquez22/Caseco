@@ -2,8 +2,11 @@ package com.admin.resource.utils;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JLabel;
+import org.apache.log4j.Logger;
 
 public class Clock extends Thread {
+    
+    final static Logger logger = Logger.getLogger(Clock.class);
     JLabel lblReloj;
     JLabel lblFecha;	
 
@@ -12,6 +15,8 @@ public class Clock extends Thread {
         this.lblFecha = lblFecha;
     }
 
+    @Override
+    @SuppressWarnings("SleepWhileInLoop")
     public void run() {  // funcionamiento del reloj
         while (true) {
             Date hoy = new Date();
@@ -22,7 +27,9 @@ public class Clock extends Thread {
                        
             try {
                 sleep(1000); // demora de 1 segundo 
-            } catch (Exception ex) { }
+            } catch (InterruptedException ex) { 
+                logger.error(ex.getStackTrace());
+            }
         }
     }
 }

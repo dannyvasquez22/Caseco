@@ -10,10 +10,12 @@ import jxl.Workbook;
 import jxl.format.UnderlineStyle;
 import jxl.write.*;
 import jxl.write.biff.RowsExceededException;
+import org.apache.log4j.Logger;
 
 public class ExportJTableExcel {
-    private File archi;
-    private List<JTable> tabla;
+    final static Logger logger = Logger.getLogger(ExportJTableExcel.class);
+    private final File archi;
+    private final List<JTable> tabla;
     private List<String> nom_hoja;
     private WritableCellFormat formato_fila;
     private WritableCellFormat formato_columna;
@@ -48,8 +50,9 @@ public class ExportJTableExcel {
             w.close();
             out.close();
             return true;
-        } catch (IOException e) {      System.out.println(e.toString());
-        } catch (WriteException ex) {  System.out.println(ex.toString());     }
+        } catch (IOException | WriteException e) {      
+            logger.error(e.toString());
+        }
         return false;
     }
 

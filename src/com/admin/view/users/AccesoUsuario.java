@@ -11,6 +11,7 @@ import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import org.apache.log4j.Logger;
 
 /** * @author DANNY VASQUEZ RAFAEL */
@@ -21,6 +22,7 @@ public class AccesoUsuario extends javax.swing.JDialog {
     private String array[];
     final static Logger logger = Logger.getLogger(AccesoUsuario.class);
     
+    @SuppressWarnings("OverridableMethodCallInConstructor")
     public AccesoUsuario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -30,7 +32,7 @@ public class AccesoUsuario extends javax.swing.JDialog {
         setIconImage(Global.ICON_IMAGE);
         setCursor(Global.CURSOR);
         this.setTitle("Control de Acceso de Usuarios");        
-        fechaActual = Global.CALENDARY.get(Global.CALENDARY.YEAR) + "-" + (Global.CALENDARY.get(Global.CALENDARY.MONTH) + 1) + "-" + Global.CALENDARY.get(Global.CALENDARY.DATE);
+        fechaActual = Global.CALENDARY.get(Calendar.YEAR) + "-" + (Global.CALENDARY.get(Calendar.MONTH) + 1) + "-" + Global.CALENDARY.get(Calendar.DATE);
         try {
             txtFecha.setText(Global.formatClient(fechaActual));
         } catch (ParseException ex) {
@@ -41,6 +43,7 @@ public class AccesoUsuario extends javax.swing.JDialog {
     }
     
     public class PresionarTecla extends KeyAdapter {
+      @Override
       public void keyPressed(KeyEvent ke) {
           if (ke.getKeyCode() == KeyEvent.VK_ESCAPE) {
               btnCancelarActionPerformed(null);
@@ -256,19 +259,18 @@ public class AccesoUsuario extends javax.swing.JDialog {
         verificarParametros();
     }//GEN-LAST:event_txtCuentaKeyReleased
 
+    @SuppressWarnings("UnusedAssignment")
     public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                AccesoUsuario dialog = null;
-                dialog = new AccesoUsuario(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            AccesoUsuario dialog = null;
+            dialog = new AccesoUsuario(new javax.swing.JFrame(), true);
+            dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                @Override
+                public void windowClosing(java.awt.event.WindowEvent e) {
+                    System.exit(0);
+                }
+            });
+            dialog.setVisible(true);
         });
     }
 

@@ -39,11 +39,13 @@ public class CTiendas implements ActionListener {
         this.view_tienda.btnAlmacenes.addActionListener(this);
         this.view_tienda.btnCancelar.addActionListener(this);
         this.view_tienda.tblTienda.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblTiendaMouseClicked(evt);
             }
         });
         this.view_tienda.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 view_tienda.dispose();
             }

@@ -51,6 +51,7 @@ public class CVehiculos extends MouseAdapter implements ActionListener {
         this.view_vehiculo.lblActivos.addMouseListener(this);
         this.view_vehiculo.lblInactivos.addMouseListener(this);
         this.view_vehiculo.tblVehiculos.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblVehiculosMouseClicked(evt);
             }

@@ -21,6 +21,7 @@ public class Clientes_CuentaB extends javax.swing.JDialog {
     private boolean result = false;
     final static Logger logger = Logger.getLogger(Clientes_CuentaB.class);
 
+    @SuppressWarnings("OverridableMethodCallInConstructor")
     public Clientes_CuentaB(java.awt.Dialog parent, boolean modal) {
         super(parent,modal);
         initComponents();
@@ -445,17 +446,15 @@ public class Clientes_CuentaB extends javax.swing.JDialog {
     }//GEN-LAST:event_btnSeleccionActionPerformed
 
     public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                Clientes_CuentaB dialog = new Clientes_CuentaB(new javax.swing.JDialog(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            Clientes_CuentaB dialog = new Clientes_CuentaB(new javax.swing.JDialog(), true);
+            dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                @Override
+                public void windowClosing(java.awt.event.WindowEvent e) {
+                    System.exit(0);
+                }
+            });
+            dialog.setVisible(true);
         });
     }
 

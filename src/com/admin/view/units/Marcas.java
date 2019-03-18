@@ -1,5 +1,6 @@
 package com.admin.view.units;
 
+@SuppressWarnings("OverridableMethodCallInConstructor")
 public class Marcas extends javax.swing.JDialog {
     
     public Marcas(java.awt.Frame parent, boolean modal) {
@@ -170,9 +171,9 @@ public class Marcas extends javax.swing.JDialog {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAceptar;
-    public static javax.swing.JButton btnAgregar;
-    public static javax.swing.JButton btnEliminar;
-    public static javax.swing.JButton btnModificar;
+    public javax.swing.JButton btnAgregar;
+    public javax.swing.JButton btnEliminar;
+    public javax.swing.JButton btnModificar;
     public javax.swing.JButton btnQuitarSeleccion;
     private javax.swing.JLabel lblDescripcion;
     private javax.swing.JLabel lblLlenado;
@@ -180,7 +181,7 @@ public class Marcas extends javax.swing.JDialog {
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JScrollPane scrollMarca;
     public javax.swing.JTable tblMarca;
-    public static Folder.DJCTextFieldWithoutPop txtDescripcion;
+    public Folder.DJCTextFieldWithoutPop txtDescripcion;
     public Folder.DJCTextFieldWithoutPop txtNombre;
     // End of variables declaration//GEN-END:variables
 }

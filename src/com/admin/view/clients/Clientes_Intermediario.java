@@ -34,6 +34,7 @@ public class Clientes_Intermediario extends javax.swing.JDialog {
     private String []registroTelefonoIntermediario;
     final static Logger logger = Logger.getLogger(Clientes_Intermediario.class);
 
+    @SuppressWarnings("OverridableMethodCallInConstructor")
     public Clientes_Intermediario(java.awt.Dialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -72,9 +73,9 @@ public class Clientes_Intermediario extends javax.swing.JDialog {
             logger.error(ex);
         }
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
-        for (String nombre : nombreReferencia) {
+        nombreReferencia.forEach((nombre) -> {
             modelo.addElement(nombre);
-        } 
+        }); 
         boxReferencia.setModel(modelo);
         txtDniIntermediario.setText("");
         txtNombreIntermediario.setText("");        
@@ -782,17 +783,15 @@ public class Clientes_Intermediario extends javax.swing.JDialog {
     }//GEN-LAST:event_btnSeleccionMovilIntermediarioActionPerformed
 
     public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                Clientes_Intermediario dialog = new Clientes_Intermediario(new javax.swing.JDialog(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            Clientes_Intermediario dialog = new Clientes_Intermediario(new javax.swing.JDialog(), true);
+            dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                @Override
+                public void windowClosing(java.awt.event.WindowEvent e) {
+                    System.exit(0);
+                }
+            });
+            dialog.setVisible(true);
         });
     }
 

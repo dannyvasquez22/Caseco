@@ -3,7 +3,9 @@ package com.admin.resource.utils;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.Calendar;
 import javax.swing.JFileChooser;
 
@@ -37,8 +39,8 @@ public class Backup {
                 }
                 irs.close();
                 br.close();
-            } catch (Exception e) {
-                Messages.messageError("Error en: " + e.getMessage());
+            } catch (IOException e) {
+                Messages.messageError("Error en: " + Arrays.toString(e.getStackTrace()));
             }
             Messages.messageOK("Copia creada satisfactoriamente.");
         } else if (opcion == JFileChooser.CANCEL_OPTION) {

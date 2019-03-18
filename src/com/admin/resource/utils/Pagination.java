@@ -2,12 +2,14 @@ package com.admin.resource.utils;
 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 import java.sql.Statement;
+import org.apache.log4j.Logger;
 
 /** * @author DANNY VASQUEZ RAFAEL */
 
 public class Pagination {
-
+    final static Logger logger = Logger.getLogger(Pagination.class);
     private static final Config dbInstance = Config.getInstance();
     private int numPage = 0;
     private int numPages = 0;
@@ -25,7 +27,7 @@ public class Pagination {
         Statement st;
         ResultSet rs;
         try {
-            st = dbInstance.getConnection().createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+            st = dbInstance.getConnection().createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 //            st = dbInstance.getConnection().;
             rs = st.executeQuery(query);
 
@@ -63,8 +65,8 @@ public class Pagination {
                 while ( rs.next() && ( cont <= numRegPagina ) );
             }                   
             
-        } catch ( Exception e ) {
-            System.err.println( "Error: "+ e.getMessage() );
+        } catch ( SQLException e ) {
+            logger.error("Error: " + e.getMessage());
         }  
         
         return data;
@@ -80,7 +82,7 @@ public class Pagination {
         return this.numPage;
     }
    
-    /** * Numero total de paginas   */
+    /** *@return  Numero total de paginas  */
     public int getNumPages() {
         return this.numPages;
     }   

@@ -2,6 +2,7 @@ package com.admin.view.units;
 
 public class TiendasAlmacen extends javax.swing.JDialog {
 
+    @SuppressWarnings("OverridableMethodCallInConstructor")
     public TiendasAlmacen(java.awt.Dialog parent, boolean modal) {        
         super(parent, modal);
         initComponents();
@@ -178,11 +179,11 @@ public class TiendasAlmacen extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JComboBox boxLugarVenta;
-    public static javax.swing.JButton btnAgregar;
+    public javax.swing.JComboBox boxLugarVenta;
+    public javax.swing.JButton btnAgregar;
     public javax.swing.JButton btnCancelar;
-    public static javax.swing.JButton btnEliminar;
-    public static javax.swing.JButton btnModificar;
+    public javax.swing.JButton btnEliminar;
+    public javax.swing.JButton btnModificar;
     public javax.swing.JButton btnQuitarSeleccion;
     public javax.swing.JButton btnTelefonoLugar;
     private javax.swing.JLabel lblLlenado;
@@ -191,6 +192,6 @@ public class TiendasAlmacen extends javax.swing.JDialog {
     private javax.swing.JLabel lblTitulo;
     public javax.swing.JLabel lblTituloRazonSocial;
     private javax.swing.JScrollPane scrollLugarVenta;
-    public static javax.swing.JTable tblLugarVenta;
+    public javax.swing.JTable tblLugarVenta;
     // End of variables declaration//GEN-END:variables
 }

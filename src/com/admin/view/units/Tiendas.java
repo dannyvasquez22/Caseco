@@ -1,5 +1,6 @@
 package com.admin.view.units;
 
+@SuppressWarnings("OverridableMethodCallInConstructor")
 public class Tiendas extends javax.swing.JDialog {
 
     public Tiendas(java.awt.Frame parent, boolean modal) {
@@ -211,11 +212,11 @@ public class Tiendas extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JButton btnAgregar;
+    public javax.swing.JButton btnAgregar;
     public javax.swing.JButton btnAlmacenes;
     public javax.swing.JButton btnCancelar;
-    public static javax.swing.JButton btnEliminar;
-    public static javax.swing.JButton btnModificar;
+    public javax.swing.JButton btnEliminar;
+    public javax.swing.JButton btnModificar;
     public javax.swing.JButton btnQuitarSeleccion;
     private javax.swing.JLabel lblAviso;
     private javax.swing.JLabel lblDireccion;
@@ -228,7 +229,7 @@ public class Tiendas extends javax.swing.JDialog {
     public javax.swing.JTable tblTienda;
     public javax.swing.JTextArea textObservacion;
     public Folder.DJCTextFieldWithoutPop txtDireccion;
-    public static Folder.DJCTextFieldWithoutPop txtRazonSocial;
+    public Folder.DJCTextFieldWithoutPop txtRazonSocial;
     public Folder.DJCTextFieldWithoutPop txtRuc;
     // End of variables declaration//GEN-END:variables
 }

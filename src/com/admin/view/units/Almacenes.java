@@ -2,6 +2,7 @@ package com.admin.view.units;
 
 /** * @author DANNY VASQUEZ RAFAEL */
 
+@SuppressWarnings("OverridableMethodCallInConstructor")
 public class Almacenes extends javax.swing.JDialog {
     
     public Almacenes(java.awt.Frame parent, boolean modal) {
@@ -168,10 +169,10 @@ public class Almacenes extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JButton btnAgregar;
+    public javax.swing.JButton btnAgregar;
     public javax.swing.JButton btnCancelar;
-    public static javax.swing.JButton btnEliminar;
-    public static javax.swing.JButton btnModificar;
+    public javax.swing.JButton btnEliminar;
+    public javax.swing.JButton btnModificar;
     public javax.swing.JButton btnQuitarSeleccion;
     private javax.swing.JLabel lblDireccion;
     private javax.swing.JLabel lblNombre;
@@ -179,7 +180,7 @@ public class Almacenes extends javax.swing.JDialog {
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JScrollPane scrollAlmacen;
     public javax.swing.JTable tblAlmacen;
-    public static Folder.DJCTextFieldWithoutPop txtDireccion;
+    public Folder.DJCTextFieldWithoutPop txtDireccion;
     public Folder.DJCTextFieldWithoutPop txtNombre;
     // End of variables declaration//GEN-END:variables
 }

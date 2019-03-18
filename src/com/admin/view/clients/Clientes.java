@@ -11,6 +11,7 @@ import com.admin.resource.utils.Messages;
 import java.awt.Color;
 import java.awt.Font;
 import java.io.File;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +32,7 @@ public class Clientes extends javax.swing.JDialog {
     private Clientes_Intermediario info;
     private Clientes_Observacion obsclie;
     
+    @SuppressWarnings("OverridableMethodCallInConstructor")
     public Clientes(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -788,7 +790,7 @@ public class Clientes extends javax.swing.JDialog {
     public void llamaExcel() {
         try {
             Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + "C:/Users/ALMACEN1/Desktop/Reportes/CLIENTES.xls");
-        } catch (Exception e) {    }
+        } catch (IOException e) {    }
     }
 
     private void txt1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt1KeyReleased
@@ -1081,17 +1083,15 @@ public class Clientes extends javax.swing.JDialog {
     }//GEN-LAST:event_itemActivarActionPerformed
 
     public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                Clientes dialog = new Clientes(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            Clientes dialog = new Clientes(new javax.swing.JFrame(), true);
+            dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                @Override
+                public void windowClosing(java.awt.event.WindowEvent e) {
+                    System.exit(0);
+                }
+            });
+            dialog.setVisible(true);
         });
     }
 

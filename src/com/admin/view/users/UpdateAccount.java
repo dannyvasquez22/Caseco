@@ -4,6 +4,7 @@ package com.admin.view.users;
 
 public class UpdateAccount extends javax.swing.JDialog {
 
+    @SuppressWarnings("OverridableMethodCallInConstructor")
     public UpdateAccount(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();

@@ -11,6 +11,7 @@ import org.jdesktop.swingx.JXLabel;
 
 public class Menu extends javax.swing.JFrame {
 
+    @SuppressWarnings("OverridableMethodCallInConstructor")
     public Menu() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
@@ -42,6 +43,7 @@ public class Menu extends javax.swing.JFrame {
         ItemMenuConfiguracion = new javax.swing.JMenu();
         ItemItemCuenta = new javax.swing.JMenuItem();
         ItemItemContraseña = new javax.swing.JMenuItem();
+        ItemItemPrinters = new javax.swing.JMenuItem();
         ItemCerrarSesion = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
@@ -257,6 +259,10 @@ public class Menu extends javax.swing.JFrame {
         ItemItemContraseña.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         ItemItemContraseña.setText("Cambiar Contraseña");
         ItemMenuConfiguracion.add(ItemItemContraseña);
+
+        ItemItemPrinters.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        ItemItemPrinters.setText("Ver Impresoras");
+        ItemMenuConfiguracion.add(ItemItemPrinters);
 
         mnInicio.add(ItemMenuConfiguracion);
 
@@ -798,6 +804,7 @@ public class Menu extends javax.swing.JFrame {
     public javax.swing.JMenuItem ItemItemNuevoPago;
     public javax.swing.JMenuItem ItemItemNuevoUsuario;
     public javax.swing.JMenuItem ItemItemPagosDeuda;
+    public javax.swing.JMenuItem ItemItemPrinters;
     public javax.swing.JMenuItem ItemItemRegistraCompra;
     public static javax.swing.JMenuItem ItemItemSalidaMercaderia;
     public javax.swing.JMenuItem ItemItemTiendas;
@@ -831,12 +838,12 @@ public class Menu extends javax.swing.JFrame {
     public javax.swing.JMenuItem ItemVerPersonal;
     public javax.swing.JMenuItem ItemVerProveedores;
     public javax.swing.JMenuItem ShutDownPC;
-    public static javax.swing.JButton btnArticulos;
-    public static javax.swing.JButton btnClientes;
-    public static javax.swing.JButton btnCompras;
-    public static javax.swing.JButton btnPagos;
-    public static javax.swing.JButton btnSalir;
-    public static javax.swing.JButton btnVentas;
+    public javax.swing.JButton btnArticulos;
+    public javax.swing.JButton btnClientes;
+    public javax.swing.JButton btnCompras;
+    public javax.swing.JButton btnPagos;
+    public javax.swing.JButton btnSalir;
+    public javax.swing.JButton btnVentas;
     public javax.swing.JMenuItem itemEjecutarBat;
     public javax.swing.JMenuItem itemItemGastosEliminados;
     public javax.swing.JMenuItem itemItemReporteArticulos;
@@ -881,7 +888,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuBar menuBarInicio;
     private org.jdesktop.swingx.JXTaskPane menuTaskArticulos;
     public static javax.swing.JMenu mnAdministracion;
-    public static javax.swing.JMenu mnArticulos;
+    public javax.swing.JMenu mnArticulos;
     public static javax.swing.JMenu mnAyuda;
     public static javax.swing.JMenu mnClientes;
     private javax.swing.JMenu mnComercializacion;

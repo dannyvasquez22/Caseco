@@ -1,6 +1,7 @@
 package com.admin.controller.init;
 
 // <editor-fold defaultstate="collapsed" desc="Importacion de clases">
+import com.admin.controller.complements.CListPrinters;
 import com.admin.controller.complements.CPCInformation;
 import com.admin.controller.complements.CSupport;
 import com.admin.controller.units.CAlmacenes;
@@ -25,6 +26,7 @@ import com.admin.resource.utils.Messages;
 import com.admin.resource.utils.ShutdownPC;
 import com.admin.view.clients.Clientes;
 import com.admin.view.clients.Clientes_CRUDPadreFrame;
+import com.admin.view.complements.ListPrinters;
 import com.admin.view.complements.PCInformation;
 import com.admin.view.complements.Support;
 import com.admin.view.users.UpdateAccount;
@@ -82,6 +84,8 @@ public class CMenu implements ActionListener {
     private CSupport controller_support;
     private UpdateAccount view_account;
     private CUpdateAccount controller_account;
+    private ListPrinters view_printer;
+    private CListPrinters controller_printer;
     private Almacenes view_almacen;
     private CAlmacenes controller_almacen;
     private Cargos view_cargo;
@@ -118,6 +122,7 @@ public class CMenu implements ActionListener {
         /*Botonos del menu; hijos de: this.view_menu.mnInicio */
         this.view_menu.ItemItemCuenta.addActionListener(this);
         this.view_menu.ItemItemContraseña.addActionListener(this);
+        this.view_menu.ItemItemPrinters.addActionListener(this);
         this.view_menu.ItemCerrarSesion.addActionListener(this);
         this.view_menu.ShutDownPC.addActionListener(this);
         /*Botones del menu; hijos de: this.view_menu.mnArticulos */
@@ -178,11 +183,13 @@ public class CMenu implements ActionListener {
         this.view_menu.itemEjecutarBat.addActionListener(this);
         // </editor-fold>
         this.view_menu.lblPagina.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblPaginaMouseClicked(evt);
             }
         });
         this.view_menu.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
@@ -199,21 +206,21 @@ public class CMenu implements ActionListener {
         Clock hilo = new Clock(view_menu.lblReloj, view_menu.lblFecha);
         hilo.start();
         view_menu.menuArticulos();
-        view_menu.lblUsuario.setText(nameUser);
+        Menu.lblUsuario.setText(nameUser);
     }
     
     private void exitProgram(int valor) throws ParseException, SQLException {
         Global.CALENDARY = Calendar.getInstance();
         int opcion = Messages.messageConfirmation("¿Seguro que desea salir?");
         if (opcion == 0) {
-            horaFin = Global.CALENDARY.get(Global.CALENDARY.HOUR_OF_DAY) + ":" + Global.CALENDARY.get(Global.CALENDARY.MINUTE) + ":" + Global.CALENDARY.get(Global.CALENDARY.SECOND);
+            horaFin = Global.CALENDARY.get(Calendar.HOUR_OF_DAY) + ":" + Global.CALENDARY.get(Calendar.MINUTE) + ":" + Global.CALENDARY.get(Calendar.SECOND);
             acceso = new AccesoDTO(
                                    Global.FORMAT_DATE_SQL.parse(fechaInicio), 
                                    new java.sql.Time(Global.FORMAT_TIME_SQL.parse(horaInicio).getTime()),
                                    new java.sql.Time(Global.FORMAT_TIME_SQL.parse(horaFin).getTime()),
-                                   new UsuarioDTO(view_menu.lblUsuario.getText()));
+                                   new UsuarioDTO(Menu.lblUsuario.getText()));
             AccesoBL.getInstance().insert(acceso);
-            usuario = new UsuarioDTO(view_menu.lblUsuario.getText());
+            usuario = new UsuarioDTO(Menu.lblUsuario.getText());
             UsuarioBL.getInstance().changeConnection(usuario, 0);
             if (valor == 0) {
                 dbInstance.destruir();
@@ -258,6 +265,11 @@ public class CMenu implements ActionListener {
             controller_account = new CUpdateAccount(view_account, nameUser);
             controller_account.iniciar(false);
             view_account.setVisible(true);
+        } else if (ae.getSource() == view_menu.ItemItemPrinters) { /*----------------------------------------*/
+            view_printer = new ListPrinters(view_menu, true);
+            controller_printer = new CListPrinters(view_printer);
+            controller_printer.iniciar();
+            view_printer.setVisible(true);
         } else if (ae.getSource() == view_menu.ItemCerrarSesion) {
             try {
                 exitProgram(1);
@@ -452,10 +464,9 @@ public class CMenu implements ActionListener {
     // </editor-fold>
     
     private void abrirCalculadora() {
-        Process runtimeProcess;
         try {
             String comandoCalculadora = System.getProperty("os.name").startsWith("Windows")?"calc":"gcalctool";
-            runtimeProcess = Runtime.getRuntime().exec(comandoCalculadora);
+            Runtime.getRuntime().exec(comandoCalculadora);
         } catch (IOException ex) {
             logger.warn(ex);
         }
@@ -468,7 +479,7 @@ public class CMenu implements ActionListener {
         try {
             String[] cmdarray = {browser, url};
             Runtime.getRuntime().exec(cmdarray);
-        } catch (Exception e) {   
+        } catch (IOException e) {   
             logger.warn(e);
         }
     }  

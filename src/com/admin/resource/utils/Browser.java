@@ -1,8 +1,11 @@
 package com.admin.resource.utils;
 import java.lang.reflect.Method;
+import org.apache.log4j.Logger;
 
 public class Browser {
 
+    final static Logger logger = Logger.getLogger(Browser.class);
+    
     public static void openURL(String url) {
         String osName = System.getProperty("os.name");
         try {
@@ -15,9 +18,9 @@ public class Browser {
             } else {
                 String[] browsers = {"firefox", "opera", "mozilla"};
                 String browser = null;
-                for (int count = 0; count < browsers.length; count++) {
-                    if (Runtime.getRuntime().exec(new String[]{"which", browsers[count]}).waitFor() == 0) {
-                        browser = browsers[count];
+                for (String browser1 : browsers) {
+                    if (Runtime.getRuntime().exec(new String[]{"which", browser1}).waitFor() == 0) {
+                        browser = browser1;
                     }
                     if (browser == null) {
                         throw new Exception("No se puede abrir el navegador web");
@@ -26,6 +29,8 @@ public class Browser {
                     }
                 }
             }
-        } catch (Exception e) {}
+        } catch (Exception e) {
+            logger.error(e.getStackTrace());
+        }
     }
 }
