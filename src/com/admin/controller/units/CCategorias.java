@@ -261,7 +261,7 @@ public class CCategorias implements ActionListener {
                                 cate_desc
                         );
 
-                        result = CategoriaBL.getInstance().insert(categoria);
+                        result = CategoriaBL.getInstance().create(categoria);
                         if (result) {
                             Messages.messageInsert();
                             ActivaCategoria();

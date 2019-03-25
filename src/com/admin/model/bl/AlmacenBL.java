@@ -2,6 +2,7 @@ package com.admin.model.bl;
 
 import com.admin.model.dao.AlmacenDAO;
 import com.admin.model.dto.AlmacenDTO;
+import com.admin.resource.utils.Constantes;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -21,29 +22,29 @@ public class AlmacenBL {
         return instance;
     }
     
-    public boolean insert(AlmacenDTO almacen) throws SQLException {
-        return AlmacenDAO.getInstance().insertAlmacen(almacen);
+    public boolean create(AlmacenDTO almacen) throws SQLException {
+        return AlmacenDAO.getInstance().create(almacen);
     }
     
     public boolean update(AlmacenDTO almacen) throws SQLException {
-        return AlmacenDAO.getInstance().updateAlmacen(almacen);
+        return AlmacenDAO.getInstance().update(almacen);
     }
     
     public boolean delete(AlmacenDTO almacen) throws SQLException {
-        return AlmacenDAO.getInstance().deleteAlmacen(almacen);
+        return AlmacenDAO.getInstance().delete(almacen);
     }
     
     public ArrayList<AlmacenDTO> getAll() throws SQLException {
-        return AlmacenDAO.getInstance().getByAll();
+        return AlmacenDAO.getInstance().getAll(Constantes.I_NUM_DOS);
     }
     
     public AlmacenDTO getById(int codigo) throws SQLException {
-//        return AlmacenDAO.getInstance().getById(codigo);
-        return (AlmacenDTO) AlmacenDAO.getInstance().getByAll().stream().filter((alm) -> alm.getCodigo() == codigo);
+        return AlmacenDAO.getInstance().findByPk(codigo);
+//        return (AlmacenDTO) AlmacenDAO.getInstance().getAll().stream().filter((alm) -> alm.getCodigo() == codigo);
     }
     
     public AlmacenDTO getByName(String name) throws SQLException {
-        return AlmacenDAO.getInstance().getByName(name);
+        return AlmacenDAO.getInstance().findByName(name);
     }
     
     public int count(int codigo) throws SQLException {
@@ -54,7 +55,7 @@ public class AlmacenBL {
         return AlmacenDAO.getInstance().getNameByCombo();
     }
     
-    public ArrayList<String> listNamesByStoreByCombo(String tiendarazonSocial)throws SQLException {
-        return AlmacenDAO.getInstance().getNameByStoreByCombo(tiendarazonSocial);
+    public ArrayList<String> listNamesByStoreCombo(String tiendarazonSocial)throws SQLException {
+        return AlmacenDAO.getInstance().getNamesByStoreCombo(tiendarazonSocial);
     }
 }

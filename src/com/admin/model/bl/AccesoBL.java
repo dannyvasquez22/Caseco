@@ -2,6 +2,7 @@ package com.admin.model.bl;
 
 import com.admin.model.dao.AccesoDAO;
 import com.admin.model.dto.AccesoDTO;
+import com.admin.resource.utils.Constantes;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -22,24 +23,24 @@ public class AccesoBL {
         return instance;
     }
 
-    public boolean insert(AccesoDTO acceso) throws SQLException {
-        return AccesoDAO.getInstance().insertAcceso(acceso);
+    public boolean create(AccesoDTO acceso) throws SQLException {
+        return AccesoDAO.getInstance().create(acceso);
     }
 
     public boolean delete(AccesoDTO acceso) throws SQLException {
-        return AccesoDAO.getInstance().deleteAcceso(acceso);
+        return AccesoDAO.getInstance().delete(acceso);
     }
 
     public boolean update(AccesoDTO acceso) throws SQLException {
-        return AccesoDAO.getInstance().updateAcceso(acceso);
+        return AccesoDAO.getInstance().update(acceso);
     }
 
-    public ArrayList<AccesoDTO> listAll() throws SQLException {
-        return AccesoDAO.getInstance().getByAll();
+    public ArrayList<AccesoDTO> getAll() throws SQLException {
+        return AccesoDAO.getInstance().getAll(Constantes.I_NUM_DOS);
     }
 
-    public AccesoDTO search(int codigo) throws SQLException {
-        return AccesoDAO.getInstance().getById(codigo);
+    public AccesoDTO findById(int codigo) throws SQLException {
+        return AccesoDAO.getInstance().findByPk(codigo);
     }  
     
 }

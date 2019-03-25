@@ -461,10 +461,10 @@ public class Empleados_Cargo extends javax.swing.JDialog {
                             fechaCreacion,
                             Float.parseFloat(textmin), 
                             Float.parseFloat(textmax),
-                            "1"
+                            1
                     );
                     
-                    result = CargoBL.getInstance().insert(cargo);
+                    result = CargoBL.getInstance().create(cargo);
                     if (result) {
                         Messages.messageInsert();
                         ActivaCargo();
@@ -519,7 +519,7 @@ public class Empleados_Cargo extends javax.swing.JDialog {
                         fechaCreacion,
                         Float.parseFloat(textmin),
                         Float.parseFloat(textmax),
-                        "1"
+                        1
                 );
                 
                 result = CargoBL.getInstance().update(cargo, tblCargos.getValueAt(filaCargo, 0).toString());

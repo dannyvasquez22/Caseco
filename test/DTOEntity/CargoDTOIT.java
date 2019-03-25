@@ -181,7 +181,7 @@ public class CargoDTOIT {
         System.out.println("getEstado");
         CargoDTO instance = null;
         int expResult = 0;
-        String result = instance.getEstado();
+        int result = instance.getEstado();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -193,7 +193,7 @@ public class CargoDTOIT {
     @Test
     public void testSetEstado() {
         System.out.println("setEstado");
-        String estado = "0";
+        int estado = 0;
         CargoDTO instance = null;
         instance.setEstado(estado);
         // TODO review the generated test code and remove the default call to fail.

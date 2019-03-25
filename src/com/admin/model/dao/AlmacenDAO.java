@@ -2,15 +2,18 @@ package com.admin.model.dao;
 
 import com.admin.model.dto.AlmacenDTO;
 import com.admin.model.interfaces.IAlmacen;
+import com.admin.model.interfaces.ICRUD;
 import com.admin.resource.utils.Config;
+import com.admin.resource.utils.Constantes;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 /** * @author DANNY VASQUEZ RAFAEL */
 
-public class AlmacenDAO implements IAlmacen {
+public class AlmacenDAO implements ICRUD<AlmacenDTO>, IAlmacen {
     private static final Config dbInstance = Config.getInstance();
     private ResultSet rs = null;
     private PreparedStatement ps = null;
@@ -18,8 +21,17 @@ public class AlmacenDAO implements IAlmacen {
     private AlmacenDTO almacen = null;
     private ArrayList<AlmacenDTO> listAlmacen = null;
     private ArrayList<String> namesCombo = null;
-    private String name;
-    private int value = 0;
+    private int value = Constantes.I_NUM_CERO;
+    private final String q_getAll = "SELECT alm_codigo, alm_nombre, alm_direccion FROM almacen";
+    private final String q_update = "UPDATE almacen SET alm_nombre = ?, alm_direccion = ? WHERE alm_codigo = ?";
+    private final String q_create = "INSERT INTO almacen (alm_nombre, alm_direccion) VALUES (?, ?)";
+    private final String q_delete = "DELETE FROM almacen WHERE alm_codigo = ?";
+    private final String q_getElementChild = "SELECT COALESCE(COUNT(dettien_codigo), 0) AS total FROM detalle_tienda WHERE alm_codigo = ?";
+    private final String q_namesByStoreCombo = "SELECT al.alm_nombre AS nombre "
+                + "FROM almacen AS al "
+                + "INNER JOIN detalle_tienda AS dt ON al.alm_codigo = dt.alm_codigo "
+                + "INNER JOIN tienda AS ti ON dt.tienda_codigo = ti.tienda_codigo "
+                + "WHERE ti.tienda_razonSocial = ?";
 
     private AlmacenDAO() {
     
@@ -33,44 +45,19 @@ public class AlmacenDAO implements IAlmacen {
     }     
     
     @Override
-    public AlmacenDTO getById(int codigo) throws SQLException{ 
-        almacen = null;
-        ps = dbInstance.getConnection().prepareStatement("SELECT alm_codigo, alm_nombre, alm_direccion FROM almacen WHERE alm_codigo = ?");
-        ps.setInt(1, codigo);
-        rs = ps.executeQuery();
-        while(rs.next()){
-            almacen = new AlmacenDTO(rs.getInt("alm_codigo"), rs.getString("alm_nombre"), rs.getString("alm_direccion"));
-        }
-        ps.close();
-        rs.close();
-        
-        return almacen;
+    public AlmacenDTO findByPk(int codigo) throws SQLException{ 
+        return getAll(Constantes.I_NUM_DOS).stream().filter(alm -> alm.getCodigo() == codigo).findFirst().orElse(null);
+    }
+    
+    public AlmacenDTO findByName(String nombre) throws SQLException {
+        return getAll(Constantes.I_NUM_DOS).stream().filter(alm -> alm.getNombre().equals(nombre)).findFirst().orElse(null);
     }
     
     @Override
-    public AlmacenDTO getByName(String nombre) throws SQLException {
-        almacen = null;
-        ps = dbInstance.getConnection().prepareStatement("SELECT alm_codigo, alm_nombre, alm_direccion FROM almacen WHERE alm_nombre = ?");
-        ps.setString(1, nombre);
-        rs = ps.executeQuery();
-        while (rs.next()) {
-            almacen = new AlmacenDTO(
-                    rs.getInt("alm_codigo"),
-                    rs.getString("alm_nombre"),
-                    rs.getString("alm_direccion")             
-            );
-        }
-        rs.close();
-        ps.close();
-        
-        return almacen;
-    }
-    
-    @Override
-    public ArrayList<AlmacenDTO> getByAll() throws SQLException{   
+    public ArrayList<AlmacenDTO> getAll(int status) throws SQLException{   
         listAlmacen = new ArrayList<>();
         almacen = null;
-        ps = dbInstance.getConnection().prepareStatement("SELECT alm_codigo, alm_nombre, alm_direccion FROM almacen");
+        ps = dbInstance.getConnection().prepareStatement(q_getAll);
         rs = ps.executeQuery();
         while(rs.next()){
             almacen = new AlmacenDTO(rs.getInt("alm_codigo"), rs.getString("alm_nombre"), rs.getString("alm_direccion"));
@@ -83,47 +70,47 @@ public class AlmacenDAO implements IAlmacen {
     }
     
     @Override
-    public boolean updateAlmacen(AlmacenDTO almacen) throws SQLException {
-        value = 0;
-        ps = dbInstance.getConnection().prepareStatement("UPDATE almacen SET alm_nombre = ?, alm_direccion = ? WHERE alm_codigo = ?");        
-        ps.setString(1, almacen.getNombre());
-        ps.setString(2, almacen.getDireccion());
-        ps.setInt(3, almacen.getCodigo());         
+    public boolean update(AlmacenDTO almacen) throws SQLException {
+        value = Constantes.I_NUM_CERO;
+        ps = dbInstance.getConnection().prepareStatement(q_update);        
+        ps.setString(Constantes.I_NUM_UNO, almacen.getNombre());
+        ps.setString(Constantes.I_NUM_DOS, almacen.getDireccion());
+        ps.setInt(Constantes.I_NUM_TRES, almacen.getCodigo());         
         value = ps.executeUpdate();
         ps.close();          
         
-        return value > 0;
+        return value > Constantes.I_NUM_CERO;
     }
 
     @Override
-    public boolean insertAlmacen(AlmacenDTO almacen) throws SQLException {
-        value = 0;
-        ps = dbInstance.getConnection().prepareStatement("INSERT INTO almacen (alm_nombre, alm_direccion) VALUES (?, ?)");
-        ps.setString(1, almacen.getNombre());
-        ps.setString(2, almacen.getDireccion());
+    public boolean create(AlmacenDTO almacen) throws SQLException {
+        value = Constantes.I_NUM_CERO;
+        ps = dbInstance.getConnection().prepareStatement(q_create);
+        ps.setString(Constantes.I_NUM_UNO, almacen.getNombre());
+        ps.setString(Constantes.I_NUM_DOS, almacen.getDireccion());
         value = ps.executeUpdate();
         ps.close();          
         
-        return value > 0;
+        return value > Constantes.I_NUM_CERO;
     }
 
     @Override
-    public boolean deleteAlmacen(AlmacenDTO almacen) throws SQLException {
-        value = 0;
-        ps = dbInstance.getConnection().prepareStatement("DELETE FROM almacen WHERE alm_codigo = ?");
-        ps.setInt(1, almacen.getCodigo());
+    public boolean delete(AlmacenDTO almacen) throws SQLException {
+        value = Constantes.I_NUM_CERO;
+        ps = dbInstance.getConnection().prepareStatement(q_delete);
+        ps.setInt(Constantes.I_NUM_UNO, almacen.getCodigo());
         value = ps.executeUpdate();
         ps.close();
         rs.close();
         
-        return value > 0;
+        return value > Constantes.I_NUM_CERO;
     }
 
     @Override
     public int getElementChild(int codigo) throws SQLException {
-        value = 0;
-        ps = dbInstance.getConnection().prepareStatement("SELECT COALESCE(COUNT(dettien_codigo), 0) AS total FROM detalle_tienda WHERE alm_codigo = ?");
-        ps.setInt(1, codigo);
+        value = Constantes.I_NUM_CERO;
+        ps = dbInstance.getConnection().prepareStatement(q_getElementChild);
+        ps.setInt(Constantes.I_NUM_UNO, codigo);
         rs = ps.executeQuery();
         while(rs.next()) {
             value = rs.getInt("total");
@@ -134,30 +121,14 @@ public class AlmacenDAO implements IAlmacen {
         return value;
     }
 
-    @Override
     public ArrayList<String> getNameByCombo() throws SQLException {
-        namesCombo = new ArrayList<>();
-        name = null;
-        ps = dbInstance.getConnection().prepareStatement("SELECT alm_nombre AS nombre FROM almacen ORDER BY alm_nombre");
-        rs = ps.executeQuery();
-        while (rs.next()) {
-            name = rs.getString("nombre");
-            namesCombo.add(name);
-        }
-        rs.close();
-        ps.close();
-        
-        return namesCombo;
+        return new ArrayList<>(getAll(Constantes.I_NUM_DOS).stream().map(AlmacenDTO::getNombre).sorted().collect(Collectors.toList()));
     }
 
     @Override
-    public ArrayList<String> getNameByStoreByCombo(String tiendaRazonSocial) throws SQLException {
+    public ArrayList<String> getNamesByStoreCombo(String tiendaRazonSocial) throws SQLException {
         namesCombo = new ArrayList<>();
-        ps = dbInstance.getConnection().prepareStatement("SELECT al.alm_nombre AS nombre "
-                + "FROM almacen AS al "
-                + "INNER JOIN detalle_tienda AS dt ON al.alm_codigo = dt.alm_codigo "
-                + "INNER JOIN tienda AS ti ON dt.tienda_codigo = ti.tienda_codigo "
-                + "WHERE ti.tienda_razonSocial = ?");
+        ps = dbInstance.getConnection().prepareStatement(q_namesByStoreCombo);
         ps.setString(1, tiendaRazonSocial);
         rs = ps.executeQuery();
         while (rs.next()) {
@@ -168,4 +139,25 @@ public class AlmacenDAO implements IAlmacen {
         
         return namesCombo;
     }
+
+    @Override
+    public boolean update(AlmacenDTO t, String pk) throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean update(AlmacenDTO t, int status) throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public AlmacenDTO findByPk(String pk) throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public ArrayList<AlmacenDTO> getAllByPagination(String name, int page, int registers, int modeStatus) throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

@@ -24,7 +24,7 @@ public class MyRenderActive extends DefaultTableCellRenderer {
             this.setForeground(Color.RED);
         }
                 
-        this.setText( (String) value );
+        this.setText( String.valueOf(value) );
         this.setFont(new Font( "Verdana",Font.PLAIN ,12 ));
         this.setHorizontalAlignment(SwingConstants.CENTER);
 //        this.setForeground( (selected)?new Color(0,0,0):new Color(0,0,0) );           // segundo color 32,17,32

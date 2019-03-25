@@ -100,7 +100,7 @@ public class Productos_CodigoBarra extends javax.swing.JDialog {
     private void listarTiendaAlmacenBox(String tiendaRazonSocial) {
         nombresTiendaAlmacenCombo = new ArrayList<>();
         try {            
-            nombresTiendaAlmacenCombo = AlmacenBL.getInstance().listNamesByStoreByCombo(tiendaRazonSocial);
+            nombresTiendaAlmacenCombo = AlmacenBL.getInstance().listNamesByStoreCombo(tiendaRazonSocial);
             DefaultComboBoxModel modelo = new DefaultComboBoxModel();
             for (String nombre : nombresTiendaAlmacenCombo) {
                 modelo.addElement(nombre);

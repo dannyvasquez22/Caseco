@@ -27,15 +27,15 @@ public class CargoBL {
     }
     
     public ArrayList<CargoDTO> listAllByStatus(int estado) throws SQLException {
-        return CargoDAO.getInstance().getByAllByStatus(estado);
+        return CargoDAO.getInstance().getAll(estado);
     }
     
     public CargoDTO listByName(String nombre) throws SQLException {
-        return CargoDAO.getInstance().getById(nombre);
+        return CargoDAO.getInstance().findByPk(nombre);
     }
 
-    public boolean insert(CargoDTO cargo) throws SQLException {
-        return CargoDAO.getInstance().insert(cargo);
+    public boolean create(CargoDTO cargo) throws SQLException {
+        return CargoDAO.getInstance().create(cargo);
     }
     
     public boolean update(CargoDTO cargo, String nombreAnterior) throws SQLException {
@@ -43,7 +43,7 @@ public class CargoBL {
     }
     
     public boolean delete(CargoDTO cargo, int status) throws SQLException {
-        return CargoDAO.getInstance().delete(cargo, status);
+        return CargoDAO.getInstance().update(cargo, status);
     }
     
     public int count(String nombre) throws SQLException {

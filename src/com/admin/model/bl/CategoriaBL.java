@@ -21,12 +21,12 @@ public class CategoriaBL {
         return instance;
     }
     
-    public boolean insert(CategoriaDTO almacen) throws SQLException {
-        return CategoriaDAO.getInstance().insert(almacen);
+    public boolean create(CategoriaDTO almacen) throws SQLException {
+        return CategoriaDAO.getInstance().create(almacen);
     }
     
     public boolean update(CategoriaDTO almacen, String nombreAnterior) throws SQLException {
-        return CategoriaDAO.getInstance().updateExceptional(almacen, nombreAnterior);
+        return CategoriaDAO.getInstance().update(almacen, nombreAnterior);
     }
     
     public boolean delete(CategoriaDTO almacen) throws SQLException {
@@ -34,15 +34,15 @@ public class CategoriaBL {
     }
     
     public ArrayList<CategoriaDTO> getAllPagination(String nombre, int pagina, int registrosPagina, int modeStatus) throws SQLException {
-        return CategoriaDAO.getInstance().getByAllPagination(nombre, pagina, registrosPagina, modeStatus);
+        return CategoriaDAO.getInstance().getAllByPagination(nombre, pagina, registrosPagina, modeStatus);
     }
     
     public CategoriaDTO getById(String codigo, int modeStatus) throws SQLException {
-        return CategoriaDAO.getInstance().getById(codigo, modeStatus);
+        return CategoriaDAO.getInstance().findByPk(codigo);
     }
     
     public int count(String codigo, int modeStatus) throws SQLException {
-        return CategoriaDAO.getInstance().getElementChild(codigo, modeStatus);
+        return CategoriaDAO.getInstance().getCountProductsRel(codigo);
     }
     
     public ArrayList<String> listNamesByCombo(int modeStatus) throws SQLException {

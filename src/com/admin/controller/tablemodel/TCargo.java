@@ -1,12 +1,13 @@
 package com.admin.controller.tablemodel;
 
 import com.admin.model.dto.CargoDTO;
+import com.admin.resource.utils.Constantes;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
 /** * @author DANNY VASQUEZ RAFAEL */
 
-public class TCargo  extends AbstractTableModel {
+public class TCargo extends AbstractTableModel {
     private ArrayList<CargoDTO> cargos = null;
     private final Class[] tiposColumn = {String.class, String.class, Float.class, Float.class, String.class, String.class};
     private final String []titulos = {"NOMBRE", "DESCRIPCIÓN", "SUELDO MÍN.", "SUELDO MÁX.", "FECHA CREACIÓN", "ESTADO"};
@@ -33,7 +34,7 @@ public class TCargo  extends AbstractTableModel {
             case 2: return this.cargos.get(rowIndex).getSueldoMin();
             case 3: return this.cargos.get(rowIndex).getSueldoMax();
             case 4: return this.cargos.get(rowIndex).getFechaCreacion();
-            case 5: return this.cargos.get(rowIndex).getEstado();
+            case 5: return this.cargos.get(rowIndex).getEstado() == Constantes.I_NUM_UNO ? Constantes.S_ACTIVO : Constantes.S_INACTIVO;
             default: return this.cargos.get(rowIndex);
         }
     }
@@ -62,7 +63,7 @@ public class TCargo  extends AbstractTableModel {
             case 2: cargos.get(rowIndex).setSueldoMin(Float.parseFloat(String.valueOf(aValue))); break;
             case 3: cargos.get(rowIndex).setSueldoMax(Float.parseFloat(String.valueOf(aValue))); break; 
             case 4: cargos.get(rowIndex).setFechaCreacion(String.valueOf(aValue)); break;
-            case 5: cargos.get(rowIndex).setEstado(String.valueOf(aValue)); break;
+            case 5: cargos.get(rowIndex).setEstado(Integer.parseInt(String.valueOf(aValue))); break;
         }
     }
 }

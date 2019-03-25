@@ -21,6 +21,7 @@ public class Productos_CRUDCategoria extends javax.swing.JDialog {
     private String descripcion = "-";
     final static Logger logger = Logger.getLogger(Productos_CRUDCategoria.class);
 
+    @SuppressWarnings("OverridableMethodCallInConstructor")
     public Productos_CRUDCategoria(java.awt.Dialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -350,7 +351,7 @@ public class Productos_CRUDCategoria extends javax.swing.JDialog {
                             descripcion
                     );
                     
-                    result = CategoriaBL.getInstance().insert(categoria);
+                    result = CategoriaBL.getInstance().create(categoria);
                     if (result) {
                         Messages.messageInsert();
                         ActivaCategoria();
@@ -510,17 +511,15 @@ public class Productos_CRUDCategoria extends javax.swing.JDialog {
     }
 
     public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                Productos_CRUDCategoria dialog = new Productos_CRUDCategoria(new javax.swing.JDialog(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            Productos_CRUDCategoria dialog = new Productos_CRUDCategoria(new javax.swing.JDialog(), true);
+            dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                @Override
+                public void windowClosing(java.awt.event.WindowEvent e) {
+                    System.exit(0);
+                }
+            });
+            dialog.setVisible(true);
         });
     }
 

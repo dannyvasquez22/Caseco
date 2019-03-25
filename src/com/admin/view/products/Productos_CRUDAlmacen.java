@@ -354,7 +354,7 @@ public class Productos_CRUDAlmacen extends javax.swing.JDialog {
                     almacen = new AlmacenDTO(
                             txtNombre.getText(),
                             txtDireccion.getText());
-                    result = AlmacenBL.getInstance().insert(almacen);
+                    result = AlmacenBL.getInstance().create(almacen);
                     if (result){
                         ActivaAlmacen();
                         Messages.messageInsert();

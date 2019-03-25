@@ -89,9 +89,7 @@ public class CTiendasAlmacen implements ActionListener {
         namesCombo = new ArrayList<>();
         modeloCombo = new DefaultComboBoxModel();
         namesCombo = AlmacenBL.getInstance().listNamesCombo();
-        namesCombo.forEach((nameCombo) -> {
-            modeloCombo.addElement(nameCombo);
-        });
+        namesCombo.forEach(modeloCombo::addElement);
         view_almacen.boxLugarVenta.setModel(modeloCombo);        
     }
     

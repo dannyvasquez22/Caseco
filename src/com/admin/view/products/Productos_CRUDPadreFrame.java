@@ -165,7 +165,7 @@ public class Productos_CRUDPadreFrame extends javax.swing.JDialog {
     public static void listarTiendaAlmacenBox(String tiendaRazonSocial) {
         nombresTiendaAlmacenCombo = new ArrayList<>();
         try {            
-            nombresTiendaAlmacenCombo = AlmacenBL.getInstance().listNamesByStoreByCombo(tiendaRazonSocial);
+            nombresTiendaAlmacenCombo = AlmacenBL.getInstance().listNamesByStoreCombo(tiendaRazonSocial);
             DefaultComboBoxModel modelo = new DefaultComboBoxModel();
             nombresTiendaAlmacenCombo.stream().forEach((nombre) -> {
                 modelo.addElement(nombre);

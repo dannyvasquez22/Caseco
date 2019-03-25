@@ -120,7 +120,7 @@ public class CAlmacenes implements ActionListener {
                         almacen = new AlmacenDTO(
                                 view_almacen.txtNombre.getText(),
                                 view_almacen.txtDireccion.getText());
-                        result = AlmacenBL.getInstance().insert(almacen);
+                        result = AlmacenBL.getInstance().create(almacen);
                         if (result){
                             ActivaAlmacen();
                             Messages.messageInsert();

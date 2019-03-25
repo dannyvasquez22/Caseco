@@ -219,7 +219,7 @@ public class CMenu implements ActionListener {
                                    new java.sql.Time(Global.FORMAT_TIME_SQL.parse(horaInicio).getTime()),
                                    new java.sql.Time(Global.FORMAT_TIME_SQL.parse(horaFin).getTime()),
                                    new UsuarioDTO(Menu.lblUsuario.getText()));
-            AccesoBL.getInstance().insert(acceso);
+            AccesoBL.getInstance().create(acceso);
             usuario = new UsuarioDTO(Menu.lblUsuario.getText());
             UsuarioBL.getInstance().changeConnection(usuario, 0);
             if (valor == 0) {

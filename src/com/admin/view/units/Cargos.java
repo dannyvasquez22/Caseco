@@ -4,6 +4,7 @@ package com.admin.view.units;
 
 public class Cargos extends javax.swing.JDialog {
 
+    @SuppressWarnings("OverridableMethodCallInConstructor")
     public Cargos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();

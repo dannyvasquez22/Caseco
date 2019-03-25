@@ -151,10 +151,10 @@ public class CCargos extends MouseAdapter implements ActionListener {
                                 fechaCreacion,
                                 Float.parseFloat(textmin), 
                                 Float.parseFloat(textmax),
-                                "1"
+                                1
                         );
 
-                        result = CargoBL.getInstance().insert(cargo);
+                        result = CargoBL.getInstance().create(cargo);
                         if (result) {
                             Messages.messageInsert();
                             ActivaCargo();
@@ -193,7 +193,7 @@ public class CCargos extends MouseAdapter implements ActionListener {
                             fechaCreacion,
                             Float.parseFloat(textmin),
                             Float.parseFloat(textmax),
-                            "1"
+                            1
                     );
 
                     result = CargoBL.getInstance().update(cargo, view_cargo.tblCargos.getValueAt(filaCargo, 0).toString());

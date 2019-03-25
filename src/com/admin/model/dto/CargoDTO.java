@@ -8,13 +8,13 @@ public class CargoDTO {
     private String fechaCreacion;
     private float sueldoMin;
     private float sueldoMax;
-    private String estado;
+    private int estado;
     
     public CargoDTO(String nombre) {
         this.nombre = nombre;
     }
 
-    public CargoDTO(String nombre, String descripcion, String fechaCreacion, float sueldoMin, float sueldoMax, String estado) {
+    public CargoDTO(String nombre, String descripcion, String fechaCreacion, float sueldoMin, float sueldoMax, int estado) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.fechaCreacion = fechaCreacion;
@@ -68,11 +68,11 @@ public class CargoDTO {
         this.sueldoMax = sueldoMax;
     }
 
-    public String getEstado() {
+    public int getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(int estado) {
         this.estado = estado;
     }
 }
